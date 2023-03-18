@@ -1,0 +1,54 @@
+.candy {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__counter{
+      width: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__incr,
+    &__decr {
+      width: 30px;
+      height: 30px;
+      background: #DEE6EE;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      font-family: 'Montserrat';
+      cursor: pointer;
+    }
+    &__count_num,
+    &__price{
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      color: #64D370;
+    }
+  
+  }
+  @media (max-width: 900px){
+    .candy{
+      &__count_num,
+      &__price{
+        font-size: 18px;
+        margin: 0 10px;
+      }
+      &__counter{
+       width: auto;
+      }
+      &__incr,
+      &__decr {
+        width: 25px;
+        height:25px;
+      }
+    }
+  }

@@ -1,0 +1,289 @@
+@import '../../styles/vars.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 1235px;
+  justify-content: space-between;
+  margin: 0 auto;
+
+  .hamburger {
+    display: none;
+
+    span {
+      width: 20px;
+      height: 4px;
+      display: block;
+      margin-bottom: 2px;
+      background-color: #000;
+    }
+  }
+
+  &__phone_number_icon {
+    display: none;
+  }
+
+  &__phone_number_mobile {
+    display: none;
+  }
+
+  &__links {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: -250px;
+      z-index: -1;
+      background: #F5FAFF;
+      box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+      border-radius: 190px;
+      width: 880px;
+      height: 52px;
+    }
+  }
+
+  &__link {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 133.8%;
+    margin-right: 40px;
+  }
+
+  .logo {
+    width: 264px;
+    height: 264px;
+    border-radius: 50%;
+    background: #F5FAFF;
+    box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+    margin-top: -47px;
+
+  }
+
+  &__phone {
+    background-color: #F5FAFF;
+    margin-left: 26px;
+    width: 280px;
+    height: 52px;
+    box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+    border-radius: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__phone_number p {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: $green-color;
+  }
+
+  .selected {
+    color: $green-color;
+  }
+
+  @media (max-width:1260px) {
+    width: 95%;
+    margin: 0 auto;
+
+    &__link {
+      margin-right: 25px;
+    }
+
+    &__links {
+      &::before {
+        width: 750px;
+        left: -200px;
+      }
+    }
+
+    .logo {
+      width: 230px;
+      height: 230px;
+    }
+
+    &__phone {
+      width: 240px;
+    }
+
+    &__phone_number p {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width:1290px) {
+    .logo {
+      width: 200px;
+      height: 200px;
+    }
+
+    &__link {
+      margin-right: 15px;
+    }
+
+    &__links {
+      &::before {
+        width: 670px;
+        left: -170px;
+        height: 40px;
+        top: -8px;
+      }
+    }
+
+    &__phone {
+      width: 220px;
+      height: 40px;
+    }
+
+    &__phone_number p {
+      font-size: 17px;
+    }
+
+  }
+
+  @media (max-width:1000px) {
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin-top: -30px;
+    }
+
+    &__links {
+      &::before {
+        width: 550px;
+        left: -110px;
+      }
+    }
+
+    &__link {
+      font-size: 12px;
+    }
+
+    &__phone {
+      width: 190px;
+    }
+
+    &__phone_number p {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width:835px) {
+    &__link {
+      font-size: 10px;
+    }
+
+    &__links {
+      &::before {
+        width: 500px;
+      }
+    }
+
+    &__phone {
+      width: 160px;
+    }
+
+    &__phone_number p {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width:760px) {
+    &__phone_number p {
+      display: none;
+    }
+
+    &__phone {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+
+    &__phone_number_icon {
+      display: block;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width:650px) {
+    width: 100%;
+
+    &__phone {
+      margin-right: 100px;
+    }
+
+    &__links_mobile {
+      position: fixed;
+      top: -500px;
+      transition: all 6s ease;
+    }
+
+    &__links {
+      display: none;
+      transition: all 6s ease;
+    }
+
+    .hamburger {
+      display: block;
+      position: fixed;
+      right: 30px;
+      z-index: 100;
+    }
+
+    &__links_mobile {
+      transition: all 6s ease;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      background-color: #fff;
+      padding: 40px 33px;
+      padding-bottom: 20px;
+      border-radius: 0px 0px 50px 50px;
+      z-index: 99;
+      box-shadow: 0px 200px 120px rgba(47, 47, 47, 0.77);
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__phone_number_mobile {
+      display: block;
+      margin: 0 auto;
+      width: 280px;
+      height: 46px;
+      background: #64D370;
+      box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+      border-radius: 190px;
+      margin-top: 34px;
+      padding: 12px 41px;
+
+      p {
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #F5FAFF;
+      }
+    }
+
+    &__link {
+      font-family: 'Comfortaa';
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 133.8%;
+      margin-bottom: 21px;
+    }
+
+  }
+  @media (max-width:450px){
+
+  }
+}

@@ -1,0 +1,168 @@
+.history {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+  width: 1334px;
+  margin-top: 120px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 250px;
+    width: 574.5px;
+    height: 574.5px;
+    background: rgba(38, 240, 58, 0.1);
+    border-radius: 50%;
+    z-index: -2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: -50px;
+    width: 426.66px;
+    height: 426.66px;
+    border: 30px solid rgba(38, 240, 58, 0.1);
+    border-radius: 50%;
+    z-index: -3;
+  }
+
+  &__img {
+    width: 604px;
+    height: auto;
+  }
+
+  &__info {
+    width: 554px;
+    margin-left: 50px;
+  }
+
+  &__info_title {
+    font-family: "Comfortaa";
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    color: #020202;
+    padding-bottom: 10px;
+  }
+
+  &__info_text {
+    font-family: "Comfortaa";
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 22px;
+    color: #020202;
+    padding-top: 20px;
+  }
+
+  &__info_subtitle {
+    padding-top: 60px;
+    font-family: "Comfortaa";
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 33px;
+    color: #020202;
+  }
+
+  @media (max-width: 1450px) {
+
+
+    &::before {
+      left: 90px;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    width: 95%;
+
+    &__info {
+      width: 50%;
+    }
+
+    &__info_title {
+      font-size: 22px;
+      line-height: 24px;
+    }
+
+    &__info_text {
+      font-size: 18px;
+      padding-top: 10px;
+    }
+
+    &__info_subtitle {
+      font-size: 22px;
+      line-height: 24px;
+    }
+
+    &__img {
+      width: 520px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    &::before {
+      width: 400px;
+      height: 400px;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    &__img {
+      width: 350px;
+    }
+
+    &__info_title {
+      font-size: 20px;
+    }
+
+    &__info_text {
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 800px){
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    &__img{
+      margin-right: auto;
+      width: 400px;
+    }
+    &__info{
+      width: 90%;
+      margin-left: auto;
+    }
+  }
+  @media (max-width: 600px){
+    &::before{
+      width: 300px;
+      height: 300px;
+    }
+    &__img{
+      width: 300px;
+    }
+    &__info{
+      width: 95%;
+    }
+    &__info_title{
+      font-size: 16px;
+    }
+    &__info_text{
+      font-size: 14px;
+      line-height: 16px;
+    }
+    &__info_subtitle{
+      padding-top: 30px;
+      font-size: 20px;
+    }
+  }
+
+}

@@ -1,0 +1,364 @@
+.container {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.product {
+    &__info {
+        margin-top: 20px;
+        width: 100%;
+        height: 460px;
+        background: rgba(2, 2, 2, 0.7);
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url("../public/images/produkt__info.png");
+            right: 0;
+            top: 0;
+            width: 1650px;
+            height: 460px;
+            z-index: -2;
+        }
+
+    }
+
+    &__lunch_wrapp {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__lunch_gramm,
+    &__lunch_kcal {
+        font-family: 'Comfortaa';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 133.8%;
+        color: #64D370;
+    }
+
+    &__info_title {
+        font-family: "Comfortaa";
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 133.8%;
+        text-align: center;
+        color: #f5faff;
+        padding-top: 50px;
+        padding-bottom: 30px;
+    }
+
+    &__info_text {
+        font-family: "Comfortaa";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 133.8%;
+        text-align: center;
+        color: #f5faff;
+        width: 980px;
+        margin: 0 auto;
+    }
+
+    &__back {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+        p {
+            font-family: "Comfortaa";
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 20px;
+            color: #020202;
+            padding-left: 15px;
+        }
+    }
+
+    &__header {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__order {
+        width: 295px;
+        height: 53px;
+        background: #64d370;
+        border-radius: 190px;
+        font-family: "Montserrat";
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 133.8%;
+        color: #f5faff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 580px;
+        margin-top: 40px;
+    }
+
+    &__item_wrapp {
+        width: 515px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    &__count {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-family: "Comfortaa";
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+        color: #020202;
+        padding: 20px 0;
+    }
+
+    &__item_info {
+        width: 515px;
+        font-family: "Montserrat";
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 133.8%;
+        color: #020202;
+        padding-bottom: 20px;
+    }
+
+    &__item_cont {
+        font-family: "Comfortaa";
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 100%;
+        color: #020202;
+    }
+
+    &__incr,
+    &__decr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: #dee6ee;
+        border-radius: 50%;
+        cursor: pointer;
+
+        p {
+            font-family: "Comfortaa";
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            align-items: center;
+            color: #020202;
+        }
+    }
+
+    &__img {
+        border-radius: 30px;
+    }
+
+    &__count_num {
+        padding: 0 10px;
+    }
+
+    &__price {
+        padding-left: 15px;
+    }
+
+    &__date {
+        padding-left: 10px;
+    }
+
+    &__price,
+    &__date {
+        font-family: "Montserrat";
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 100%;
+        color: #64d370;
+    }
+
+    &__count_num {
+        font-family: "Montserrat";
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        color: #64d370;
+    }
+
+
+
+
+}
+
+@media (max-width: 1300px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .product {
+        &__item {
+            width: 45%;
+        }
+
+        &__img {
+            width: 100%;
+            height: auto;
+        }
+
+        &__item_info {
+            width: auto;
+        }
+
+        &__item_wrapp {
+            width: auto;
+        }
+
+        &__info_title {
+            font-size: 22px;
+        }
+
+        &__info_text {
+            font-size: 16px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        &__price {
+            font-size: 18px;
+        }
+
+        &__item_cont {
+            font-size: 14px;
+        }
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .product {
+        &__order {
+            width: 269px;
+            height: 45px;
+            font-size: 22px;
+        }
+
+        &__back_arrow {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 97%;
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .product {
+        &__item {
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        &__info_title {
+            font-size: 22px;
+            padding-bottom: 10px;
+        }
+
+        &__info_text {
+            font-size: 15px;
+        }
+
+        &__back {
+            p {
+                font-size: 18px;
+            }
+        }
+
+        &__back_arrow {
+            width: 20px;
+            height: 20px;
+        }
+
+        &__order {
+            font-size: 20px;
+            width: 40%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .product {
+
+        &__lunch_gramm,
+        &__lunch_kcal {
+            font-size: 14px;
+        }
+        &__title{
+            font-size: 16px;
+        }
+
+        &__item {
+            width: 90%;
+        }
+
+        &__info {
+            height: 400px;
+        }
+
+        &__info_text {
+            width: 95%;
+            font-size: 12px;
+        }
+
+        &__order {
+            width: 60%;
+            font-size: 18px;
+        }
+
+        &__count_num {
+            font-size: 18px;
+        }
+
+        &__date {
+            font-size: 16px;
+        }
+
+        &__price {
+            font-size: 16px;
+        }
+
+        &__incr,
+        &__decr {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}

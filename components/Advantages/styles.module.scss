@@ -1,0 +1,125 @@
+@import '../../styles/vars.scss';
+
+.advantages {
+    width: 1286.44px;
+    margin: 0 auto;
+
+    &__container {
+        width: 100%;
+        height: 220px;
+        background: rgba(245, 250, 255, 0.8);
+        border-radius: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 120px;
+        padding: 0 60px;
+    }
+
+    &__item {
+        max-width: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    &__item_text {
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 130.22%;
+        color: $text-black;
+
+    }
+
+    @media (max-width: 1330px) {
+        width: 95%;
+
+        &__container {
+            padding: 0 40px;
+            height: 160px;
+        }
+    }
+
+    @media (max-width: 1130px) {
+        &__item_image {
+            width: 40px;
+            height: auto;
+        }
+
+        &__item {
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            width: 130px;
+        }
+
+        &__item_text {
+            padding-top: 12px;
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 930px) {
+
+        &__container {
+            padding: 0 15px;
+        }
+
+        &__item_image {
+            width: 33px;
+        }
+
+        &__item {
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            max-width: 120px;
+        }
+
+        &__item_text {
+            padding-top: 12px;
+            font-size: 9px;
+            line-height: 12px;
+        }
+    }
+
+    @media (max-width: 770px) {
+        margin-top: 70px;
+
+        &__container {
+            display: grid;
+            height: 220px;
+            padding: 15px 15px;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        gap: 10px;
+
+        &__item {
+            margin: 0 auto;
+
+            &:not(:last-child) {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @media (max-width: 450px) {
+        margin-top: 40px;
+
+        &__container {
+            height: 400px;
+            background-color: transparent;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}

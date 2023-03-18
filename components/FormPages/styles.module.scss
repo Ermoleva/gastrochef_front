@@ -1,0 +1,254 @@
+@import '../../styles/vars.scss';
+
+.form {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 33px;
+    text-align: center;
+    color: $text-black;
+
+  }
+
+  &__subtitle {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 133.8%;
+    text-align: center;
+    color: #020202;
+
+  }
+
+  &__input_name {
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133.8%;
+    color: $text-black;
+    margin-bottom: 5px;
+  }
+
+
+  .input_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .error_message {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    color: red;
+    font-family: 'Comfortaa';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 133.8%;
+    color: #F87676;
+
+  }
+
+  .valid_indicator {
+    position: absolute;
+    top: 47px;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+
+  .valid_indicator::before {
+    content: '●';
+    color: green;
+  }
+
+  &__input {
+    width: 100%;
+    height: 40px;
+    background: #DEE6EE;
+    border-radius: 190px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 133.8%;
+    color: $text-black;
+
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__btn_phone {
+    width: 298px;
+    height: 60px;
+    border: 3px solid #64D370;
+    filter: drop-shadow(0px 0px 20px rgba(86, 86, 86, 0.15));
+    border-radius: 190px;
+    cursor: pointer;
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 133.8%;
+    color: #64D370;
+    margin: 32px auto 0;
+    background-color: #fff;
+
+  }
+
+  &__btn_or {
+    font-family: 'Comfortaa';
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 133.8%;
+    color: $text-black;
+    padding: 11px 0;
+  }
+
+  &__btn_online {
+    width: 324px;
+    height: 60px;
+    background: #64D370;
+    box-shadow: 0px 0px 20px rgba(86, 86, 86, 0.15);
+    border-radius: 190px;
+    margin: 0 auto;
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133.8%;
+    color: #F5FAFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+  }
+
+  @media (max-width: 1000px) {
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 70px;
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+    }
+
+    &__input_name {
+      font-size: 16px;
+    }
+
+    &__input {
+      font-size: 14px;
+    }
+    &__btn_phone{
+      font-size: 18px;
+      width: 250px;
+      margin-top: 10px;
+    }
+    &__btn_or{
+        font-size: 20px;
+    }
+    &__btn_online{
+      font-size: 18px;
+      width: 270px;
+    }
+  }
+  @media (max-width: 500px){
+    width: 95%;
+  }
+  @media (max-width: 400px){
+    &__subtitle{
+      font-size: 12px;
+      padding-bottom: 20px;
+    }
+    &__input_name{
+      padding-left: 15px;
+    }
+  }
+}
+
+.back {
+  &__form_checkbox {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: "Comfortaa";
+    color: #020202;
+    display: flex;
+    align-items: center;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+
+      &:checked~.checkmark {
+        background-color: #DEE6EE;
+      }
+
+      &:checked~.checkmark::after {
+        display: block;
+      }
+    }
+  }
+
+  &__form_checkbox_wrapp {
+    margin-bottom: 30px;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #DEE6EE;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 6px;
+      left: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #64D370;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__form_checkbox {
+      font-size: 14px;
+    }
+
+    .checkmark {
+      height: 20px;
+      width: 20px;
+
+      &::after {
+        width: 7px;
+        height: 7px;
+      }
+    }
+  }
+}
