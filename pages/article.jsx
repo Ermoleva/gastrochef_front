@@ -81,15 +81,18 @@ export default function Article() {
         <Image
         
           className={styles.article__info_img}
-          src={info1}
+          src={`/images/${item.image1}`}
           alt=""
-          layout={"raw"}
+          width="1020"
+          height="432"
         />
         <p className={styles.article__text}>{item.info2}</p>
         <Image
           className={styles.article__info_img}
-          src={info2}
-          layout={"raw"}
+          src={`/images/${item.image2}`}
+          alt=""
+          width="1020"
+          height="432"
         />
         <p className={styles.article__text}>{item.info3}</p>
 

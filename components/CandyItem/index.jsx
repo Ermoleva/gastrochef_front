@@ -6,13 +6,13 @@ import img from "../../public/images/product-img.png"
 export default function CandyItem({candyItem, increase, decrease}) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
 
-    const {title, description, proteins, fats, carbohydrates, kcal, count, id, price, priceTotal} = candyItem;
+    const {title, description, proteins, fats, carbohydrates, kcal, count, id, price, priceTotal, image} = candyItem;
 
     return(
         <div className={styles.product__item}>
 
-            <Image src={img}
-                   alt="candy" layout="raw" className={styles.product__img}/>
+            <Image src={`/images/${image}`} width="580" height="280"
+                   alt="candy" className={styles.product__img}/>
             <h2 className={styles.product__title}>{title}</h2>
             <p className={styles.product__item_info}>
                 {description}

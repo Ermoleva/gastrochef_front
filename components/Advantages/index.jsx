@@ -13,7 +13,7 @@ export default function Advantages() {
         <div className={styles.advantages__item}>
           <Image
             className={styles.advantages__item_image}
-            src={advantage1}
+            src='/images/advantage_1.svg'
             width={53}
             height={63}
           />
@@ -24,7 +24,7 @@ export default function Advantages() {
         <div className={styles.advantages__item}>
           <Image
             className={styles.advantages__item_image}
-            src={advantage2}
+            src='/images/advantage_2.svg'
             width={53}
             height={63}
           />
@@ -35,7 +35,7 @@ export default function Advantages() {
         <div className={styles.advantages__item}>
           <Image
             className={styles.advantages__item_image}
-            src={advantage3}
+            src='/images/advantage_3.svg'
             width={53}
             height={63}
           />
@@ -46,7 +46,7 @@ export default function Advantages() {
         <div className={styles.advantages__item}>
           <Image
             className={styles.advantages__item_image}
-            src={advantage4}
+            src='/images/advantage_4.svg'
             width={53}
             height={63}
           />
@@ -57,7 +57,7 @@ export default function Advantages() {
         <div className={styles.advantages__item}>
           <Image
             className={styles.advantages__item_image}
-            src={advantage5}
+            src='/images/advantage_5.svg'
             width={53}
             height={63}
           />
@@ -68,7 +68,7 @@ export default function Advantages() {
         <div className={styles.advantages__item}>
           <Image
             className={styles.advantages__item_image}
-            src={advantage6}
+            src='/images/advantage_6.svg'
             width={53}
             height={63}
           />

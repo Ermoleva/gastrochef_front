@@ -13,9 +13,10 @@ export default function Articles() {
             <div className={styles.articles__item} key={article.id}>
               <Link href={{pathname: '/article', query : {article: article.id}}} className={styles.articles__link}>
                 <Image
-                  src={article1}
+                  src={`/images/${article.preview}`}
                   alt="image"
-                  layout={"raw"}
+                  width="380"
+                  height="190"
                   className={styles.articles__img}
                 />
                 <h2 className={styles.articles__title}>{article.title}</h2>

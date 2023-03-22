@@ -6,11 +6,11 @@ import img from "../../public/images/lunch-img.png"
 
 export default function LunchItem({lunchItem, increase, decrease}){
 
-    const {id, description, title, gram, kcal, priceTotal, count, price} = lunchItem
+    const {id, description, title, gram, kcal, priceTotal, count, price,image} = lunchItem
 
     return(
         <div className={styles.product__item}>
-            <Image src={img}
+            <Image src={`/images/${image}`} width="577" height="288"
                    alt="product" layout={'raw'} className={styles.product__img}/>
             <div className={styles.product__lunch_wrapp}>
             <h2 className={styles.product__title}>{title}</h2>
