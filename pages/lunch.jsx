@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../data/BusinessLunch";
 import styles from "../styles/shopItem.module.scss";
 import { useState, useEffect } from "react";
 
