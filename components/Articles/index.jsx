@@ -1,10 +1,8 @@
 import styles from "./styles.module.scss";
 import Image from "next/image";
-import article1 from "../../public/images/articles_1.png";
-import articles from "../../data/Articles.js";
 import Link from "next/link";
 
-export default function Articles() {
+export default function Articles({articles}) {
   return (
     <section className={styles.articles}>
       <div className={styles.container}>
