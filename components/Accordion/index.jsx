@@ -4,10 +4,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { accordion } from '../../data/FAQ';
 import styles from './styles.module.scss'
 
-export default function AccordionMy() {
+export default function AccordionMy({accordion}) {
   return (
     <div className={styles.accordion}>
       <h2 className={styles.accordion__title}>Часто задаваемые вопросы</h2>
