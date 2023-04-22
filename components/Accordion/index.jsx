@@ -13,19 +13,19 @@ export default function AccordionMy({accordion}) {
       {accordion.map((item) => (
         // eslint-disable-next-line react/jsx-key
         <Accordion className={styles.accordion__item}>
-        <AccordionSummary className={styles.accordion__item_wrap_title}
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={styles.accordion__item_title}>{item.title}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography className={styles.accordion__item_subtitle}>
-            {item.description}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary className={styles.accordion__item_wrap_title}
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={styles.accordion__item_title}>{item.title}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography className={styles.accordion__item_subtitle}>
+              {item.description}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
       ))}
      
       
