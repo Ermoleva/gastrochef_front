@@ -39,7 +39,7 @@ export default function Home({accordion}) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await queries.get('/faq');
   return {
     props: {

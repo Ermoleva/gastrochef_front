@@ -11,7 +11,7 @@ import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
 import queries from "../data/queries";
 
-export default function lunch(props) {
+export default function Lunch(props) {
   const initCardData = [...props.businesslunch];
   initCardData.forEach(c => {
     c.count = 0;
@@ -157,7 +157,7 @@ export default function lunch(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await queries.get('/businesslunch');
   return {
     props: { 

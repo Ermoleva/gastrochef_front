@@ -26,7 +26,7 @@ export default function about({accordion}) {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await queries.get('/faq');
   return {
     props: {

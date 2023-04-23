@@ -13,7 +13,7 @@ import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
 import queries from "../data/queries";
 
-export default function candies(props) {
+export default function Candies(props) {
   const initCardData = [...props.candies];
   initCardData.forEach(c => {
     c.count = 0;
@@ -145,7 +145,7 @@ export default function candies(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await queries.get('/candies');
   return {
     props: { 

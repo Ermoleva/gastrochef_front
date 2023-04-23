@@ -183,7 +183,7 @@ export default function Article({articles}) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await queries.get('/blog');
   return {
     props: { 
