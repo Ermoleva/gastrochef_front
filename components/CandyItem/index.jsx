@@ -1,7 +1,6 @@
 import styles from "../../styles/shopItem.module.scss"
 import Image from "next/image";
 import CountCandy from "./CountCandy";
-import img from "../../public/images/product-img.png"
 
 export default function CandyItem({candyItem, increase, decrease}) {
     // eslint-disable-next-line react-hooks/rules-of-hooks

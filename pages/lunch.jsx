@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../data/BusinessLunch";
 import styles from "../styles/shopItem.module.scss";
 import { useState, useEffect } from "react";
 
@@ -10,9 +9,15 @@ import LunchItemModal from "../components/Modal/LunchItemModal";
 import Modal from "../components/Modal/ModalLunch";
 import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
+import queries from "../data/queries";
 
-export default function lunch() {
-  const [cart, setCart] = useState(data);
+export default function Lunch(props) {
+  const initCardData = [...props.businesslunch];
+  initCardData.forEach(c => {
+    c.count = 0;
+    c.priceTotal = c.price;
+  })
+  const [cart, setCart] = useState(initCardData);
   const [modalLunchActive, setModalLunchActive] = useState(false);
   const [numberActive, setNumberActive] = useState(false);
   const [onlineActive, setOnlineActive] = useState(false);
@@ -108,8 +113,8 @@ export default function lunch() {
       />
       <ModalNumber active={numberActive} setActive={setNumberActive} />
       <ModalOnline
-        total={total}
         active={onlineActive}
+        cart={cart}
         setActive={setOnlineActive}
       />
       <section className={styles.product__info}>
@@ -150,4 +155,13 @@ export default function lunch() {
       <PhotosSwiper />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await queries.get('/businesslunch');
+  return {
+    props: { 
+      businesslunch: res.data 
+    },
+  };
 }

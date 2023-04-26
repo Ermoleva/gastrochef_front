@@ -7,14 +7,19 @@ import CandyInfo from "../components/CandyItem/CandyInfo";
 import CandyItem from "../components/CandyItem";
 import { useState, useEffect } from "react";
 
-import data from "../data/Candies";
 import CandyItemModal from "../components/Modal/CandyItemModal";
 import Modal from "../components/Modal/ModalCandy";
 import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
+import queries from "../data/queries";
 
-export default function candies() {
-  const [cart, setCart] = useState(data);
+export default function Candies(props) {
+  const initCardData = [...props.candies];
+  initCardData.forEach(c => {
+    c.count = 0;
+    c.priceTotal = c.price;
+  })
+  const [cart, setCart] = useState(initCardData);
   const [modalCandyActive, setModalCandyActive] = useState(false);
   const [numberActive, setNumberActive] = useState(false);
   const [onlineActive, setOnlineActive] = useState(false);
@@ -107,8 +112,8 @@ export default function candies() {
       />
       <ModalNumber active={numberActive} setActive={setNumberActive} />
       <ModalOnline
-        total={total}
         active={onlineActive}
+        cart={cart}
         setActive={setOnlineActive}
       />
       <CandyInfo />
@@ -138,4 +143,13 @@ export default function candies() {
       <PhotosSwiper />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await queries.get('/candies');
+  return {
+    props: { 
+      candies: res.data 
+    },
+  };
 }

@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
-import articles from "../data/Articles.js";
 import styles from "../components/Articles/article.module.scss";
 
 import Image from "next/image";
-import article1 from "../public/images/articles_1.png";
+import article1 from "../public/images/blog_prew1.png";
 import inst from "../public/images/inst_icon.svg";
 import facebook from "../public/images/facebook_icon.svg";
 import back from "../public/images/article_back_arrow.svg";
@@ -12,13 +11,14 @@ import Link from "next/link.js";
 
 import info1 from "../public/images/article-info.png"
 import info2 from "../public/images/article-info2.png"
+import queries from "../data/queries";
 
-export default function Article() {
+export default function Article({articles}) {
   const router = useRouter();
-  const { article } = router.query;
-  const item = articles.find((i) => i.id === article);
+  const articleId = +router.query.article;
+  const item = articles.find((a) => a.id === articleId);
 
-  const startIndex = articles.findIndex((item) => item.id === article) + 1;
+  const startIndex = articles.findIndex((item) => item.id === articleId) + 1;
   const endIndex = startIndex + 3;
 
   let displayedItems = articles.slice(startIndex, endIndex);
@@ -27,6 +27,10 @@ export default function Article() {
     displayedItems = articles.slice(0, 3);
   }
 
+  if (!item) return (
+    <div> Article not found </div>
+  )
+  
   return (
     <section className={styles.article}>
       {console.log(item)}
@@ -163,7 +167,7 @@ export default function Article() {
                     <Link
                       href={{
                         pathname: "/article",
-                        query: { article: article.id },
+                        query: { article: i.id },
                       }}
                     >
                       Подробнее
@@ -177,4 +181,13 @@ export default function Article() {
       </div>
     </section>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await queries.get('/blog');
+  return {
+    props: { 
+      articles: res.data 
+    },
+  };
 }

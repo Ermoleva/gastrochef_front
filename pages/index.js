@@ -10,11 +10,12 @@ import Advantages from "../components/Advantages";
 import AccordionMy from "../components/Accordion";
 import Form from "../components/FormPages";
 import PhotosSwiper from "../components/PhotosSwiper";
+import queries from "../data/queries";
 import Program from "../components/Program/Program";
 import { programsData } from "../data/Program";
 import ProgramSlider from "../components/Program/ProgramSlider";
 
-export default function Home() {
+export default function Home({accordion}) {
   const [selectedLink, setSelectedLink] = useState("program");
 
   const handleLinkClick = (link) => {
@@ -34,11 +35,20 @@ export default function Home() {
         <PhotosSwiper />
         <div className="form__flex"x>
         <Form />
-        <AccordionMy />
+        <AccordionMy accordion={accordion}/>
         </div>
         
       </div>
       <footer className={styles.footer}></footer>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await queries.get('/faq');
+  return {
+    props: {
+      accordion: res.data
+    },
+  };
 }

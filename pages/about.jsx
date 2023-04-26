@@ -7,8 +7,9 @@ import AccordionMy from "../components/Accordion";
 import Form from "../components/FormPages";
 import PhotosSwiper from '../components/PhotosSwiper';
 import GastroChefEasy from '../components/GastroChefEasy';
+import queries from '../data/queries';
 
-export default function about() {
+export default function about({accordion}) {
   return (
     <div>
       <AboutMe />
@@ -18,8 +19,18 @@ export default function about() {
       <PhotosSwiper />
       <div className="form__flex"x>
         <Form />
-        <AccordionMy />
+        <AccordionMy accordion={accordion}/>
         </div>
     </div>
   )
+}
+
+
+export async function getServerSideProps() {
+  const res = await queries.get('/faq');
+  return {
+    props: {
+      accordion: res.data
+    },
+  };
 }

@@ -3,9 +3,17 @@ import Image from "next/image";
 import close from "../../public/images/closeModal.svg";
 import { useState } from "react";
 import Select from "react-select";
+import queries from '../../data/queries';
+import Swal from 'sweetalert2';
 
-export default function ModalOnline({ active, setActive, total }) {
-  const { count, price } = total;
+export default function ModalOnline({ active, setActive, cart }) {
+  // const { count, price } = total;
+  let count = 0;
+  let price = 0;
+  cart.forEach(item => {
+    count += item.count;
+    price += item.price * item.count;
+  })
   const time = [
     {
       value: "13:00",
@@ -25,7 +33,7 @@ export default function ModalOnline({ active, setActive, total }) {
     },
   ];
 
-  const [timeDelivery, setTimeDelivery] = useState("Время доставки");
+  const [timeDelivery, setTimeDelivery] = useState("");
 
   const getValueTime = () => {
     return timeDelivery ? time.find((c) => c.value === timeDelivery) : "";
@@ -49,7 +57,7 @@ export default function ModalOnline({ active, setActive, total }) {
       label: "Privat24",
     },
   ];
-  const [payDelivery, setPayDelivery] = useState("Время доставки");
+  const [payDelivery, setPayDelivery] = useState("");
 
   const getValuePay = () => {
     return payDelivery ? pay.find((c) => c.value === payDelivery) : "";
@@ -69,7 +77,7 @@ export default function ModalOnline({ active, setActive, total }) {
       label: "От знакомых",
     },
   ];
-  const [whereKnow, setWhereKnow] = useState("Откуда узнали о нас");
+  const [whereKnow, setWhereKnow] = useState("");
   const getValueKnow = () => {
     return whereKnow ? know.find((c) => c.value === whereKnow) : "";
   };
@@ -88,7 +96,7 @@ export default function ModalOnline({ active, setActive, total }) {
       label: "Не подтверждать заказ",
     },
   ];
-  const [connectUs, setConnectUs] = useState("Как с Вами связаться?");
+  const [connectUs, setConnectUs] = useState("");
   const getValueConnect = () => {
     return connectUs ? connect.find((c) => c.value === connectUs) : "";
   };
@@ -128,8 +136,38 @@ export default function ModalOnline({ active, setActive, total }) {
       }),
   };
 
+  async function doOrder() {
+    function value(id) {
+      return document.querySelector('#modal-online #'+id)?.value;
+    }
+    const body = {
+      name: value("name"),
+      phone: value('phone'),
+      cart,
+      total: count + " шт / " + price + " грн",
+
+      street: value('street'),
+      house: value('house'),
+      floor: value('floor'),
+
+      flat: value('flat'),
+      frontDoor: value('front-door'),
+      intercom: value('intercom'),
+
+      deliveryTime: timeDelivery,
+      paymentMethod: payDelivery,
+      whereKnow: whereKnow,
+      contactInfo: connectUs,
+    }
+    // alert(JSON.stringify(body, undefined, 4))
+    await queries.post('/order/create', body)
+    // setActive(false)
+    Swal.fire('Успіх', "Замовлення було оформлено. З вами скоро зв'яжуться!", 'success')
+  }
+
   return (
     <div
+      id='modal-online'
       className={[active ? styles.modal__active : styles.modal]}
       onClick={() => setActive(false)}
     >
@@ -160,6 +198,7 @@ export default function ModalOnline({ active, setActive, total }) {
               placeholder="имя"
               name="name"
               type="text"
+              id="name"
             />
             <input
               className={styles.modal__input}
@@ -167,6 +206,7 @@ export default function ModalOnline({ active, setActive, total }) {
               placeholder="Введите номер телефона"
               name="tel"
               type="text"
+              id="phone"
             />
             <div className={styles.modal__wrapp_adrress}>
               <input
@@ -175,6 +215,7 @@ export default function ModalOnline({ active, setActive, total }) {
                 placeholder="Улица"
                 name="name"
                 type="text"
+                id="street"
               />
               <input
                 className={styles.modal__input}
@@ -182,6 +223,7 @@ export default function ModalOnline({ active, setActive, total }) {
                 placeholder="Дом:"
                 name="name"
                 type="text"
+                id="house"
               />
               <input
                 className={styles.modal__input}
@@ -189,6 +231,7 @@ export default function ModalOnline({ active, setActive, total }) {
                 placeholder="Этаж:"
                 name="name"
                 type="text"
+                id="floor"
               />
               <input
                 className={styles.modal__input}
@@ -196,6 +239,7 @@ export default function ModalOnline({ active, setActive, total }) {
                 placeholder="Квартира: "
                 name="name"
                 type="text"
+                id="flat"
               />
               <input
                 className={styles.modal__input}
@@ -203,6 +247,7 @@ export default function ModalOnline({ active, setActive, total }) {
                 placeholder="Парадное:"
                 name="name"
                 type="text"
+                id="front-door"
               />
               <input
                 className={styles.modal__input}
@@ -210,6 +255,7 @@ export default function ModalOnline({ active, setActive, total }) {
                 placeholder="Домофон: "
                 name="name"
                 type="text"
+                id="intercom"
               />
             </div>
           </div>
@@ -217,28 +263,32 @@ export default function ModalOnline({ active, setActive, total }) {
             <Select
               classNamePrefix="modal__select"
               // onChange={onChange}
-              value={getValueTime()}
+              onChange={(n) => setTimeDelivery(n.value)}
+              // value={getValueTime()}
               options={time}
               placeholder="Время доставки"
               styles={customStyles}
             />
             <Select
               classNamePrefix="modal__select"
-              value={getValuePay()}
+              onChange={(n) => setPayDelivery(n.value)}
+              // value={getValuePay()}
               options={pay}
               placeholder="Способ оплаты"
               styles={customStyles}
             />
             <Select
               classNamePrefix="modal__select"
-              value={getValueKnow()}
+              onChange={(n) => setWhereKnow(n.value)}
+              // value={getValueKnow()}
               options={know}
               placeholder="Откуда узнали о нас"
               styles={customStyles}
             />
             <Select
               classNamePrefix="modal__select"
-              value={getValueConnect()}
+              onChange={(n) => setConnectUs(n.value)}
+              // value={getValueConnect()}
               options={connect}
               placeholder="Как с Вами связаться?"
               styles={customStyles}
@@ -246,7 +296,7 @@ export default function ModalOnline({ active, setActive, total }) {
           </div>
         </div>
         <div className={styles.modal__order}>
-          <div className={styles.modal__btn} onClick={() => setActive(false)}>
+          <div className={styles.modal__btn} onClick={doOrder}>
             Заказать
           </div>
           <div className={styles.modal__total}>
