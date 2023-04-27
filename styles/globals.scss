@@ -205,7 +205,13 @@ li {
 .react-tabs__tab--selected{
   font-family: 'Comfortaa';
   border-color: transparent !important;
+  border: none !important;
   color: $green-color !important;
+  background: transparent  !important;
+
+}
+.react-tabs__tab--selected::after,.react-tabs__tab--selected::before{
+  display: none;
 }
 .program-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
   width: 200px !important;
@@ -216,5 +222,18 @@ li {
   background: transparent !important;
 }
 .program-swiper .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after,.swiper-button-next:after, .swiper-button-prev:after{
-  color: $green-color
+  color: $green-color;
+  
+}
+.program-swiper .swiper-scrollbar{
+  background: transparent !important;
+}
+.react-tabs__tab-panel--selected{
+  width: 700px;
+  box-sizing: border-box;
+  padding: 40px 20px;
+        background: #F5FAFF;
+        box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+        border-radius: 30px;
+        box-sizing: border-box;
 }

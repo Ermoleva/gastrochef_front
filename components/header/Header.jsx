@@ -69,6 +69,16 @@ export default function Header() {
         </Link>
         <Link 
         
+        href="/favorites"
+        className={`${styles.header__link} ${
+          selectedLink === "favorites" ? styles.selected : ""
+        }`}
+        onClick={() => {handleLinkClick("favorites"),closeMenu()}}
+      >
+        Favorites
+      </Link>
+        <Link 
+        
           href="/blog"
           className={`${styles.header__link} ${
             selectedLink === "blog" ? styles.selected : ""

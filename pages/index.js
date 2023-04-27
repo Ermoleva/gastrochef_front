@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState } from "react";
 import Image from "next/image";
 import 'swiper/swiper-bundle.min.css';
-
+import queries from '../data/queries';
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import Slider from "../components/Slider";
@@ -10,7 +10,6 @@ import Advantages from "../components/Advantages";
 import AccordionMy from "../components/Accordion";
 import Form from "../components/FormPages";
 import PhotosSwiper from "../components/PhotosSwiper";
-import queries from "../data/queries";
 import Program from "../components/Program/Program";
 import { programsData } from "../data/Program";
 import ProgramSlider from "../components/Program/ProgramSlider";
@@ -31,7 +30,9 @@ export default function Home({accordion}) {
       <div className="main">
         <Slider />
         <Advantages />
+        <div className={styles.program__container}>
         <ProgramSlider programs={programsData} />
+        </div>
         <PhotosSwiper />
         <div className="form__flex"x>
         <Form />
