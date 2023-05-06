@@ -18,8 +18,8 @@ const ProgramSlider = ({ programs }) => {
       scrollbar={{ draggable: true }}
       className='program-swiper'
     >
-      {programs.map((program, index) => (
-        <SwiperSlide key={index}>
+      {programs.map((program) => (
+        <SwiperSlide key={program.id}>
           <Program program={program} />
         </SwiperSlide>
       ))}

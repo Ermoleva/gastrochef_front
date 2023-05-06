@@ -4,8 +4,39 @@ import 'react-tabs/style/react-tabs.css';
 import styles from './styles.module.scss';
 import axios from 'axios';
 
+
+const weekDays = {
+  "monday": ["Понеділок", "ПН"],
+  "tuesday": ["Вівторок", "ВТ"],
+  "wednesday": ["Середа", "СР"],
+  "thursday": ["Четвер", "ЧТ"],
+  "friday": ["П'ятниця", "ПТ"],
+  "saturday": ["Субота", "СБ"],
+  "sunday": ["Неділя", "НД"],
+}
+const mealTypes = {
+  "breakfast": ["Завтрак", "7:00 - 9:00"],
+  "second_bf": ["Второй завтрак", "10:00 - 11:00"],
+  "lunch": ["Обед", "13:00 - 15:00"],
+  "afternoon": ["Полдник", "16:00 - 17:00"],
+  "dinner": ["Ужин", "19:00 - 20:00"],
+}
+
+function localeDayOfWeek(dayOfWeek) {
+  return weekDays[dayOfWeek] ? weekDays[dayOfWeek][0] : dayOfWeek;
+}
+function shortDayOfWeek(dayOfWeek) {
+  return weekDays[dayOfWeek] ? weekDays[dayOfWeek][1] : dayOfWeek;
+}
+function localeMeals(meals) {
+  return mealTypes[meals] ? mealTypes[meals][0] : meals;
+}
+function mealsTime(meals) {
+  return mealTypes[meals] ? mealTypes[meals][1] : meals;
+}
+
 const Program = ({ program }) => {
-  const { name, calories, description, days } = program;
+  const { name, calories, description, plans } = program;
   const [isFavorite, setIsFavorite] = useState(program.isFavorite);
 
   const handleLikeButtonClick = () => {
@@ -31,49 +62,44 @@ const Program = ({ program }) => {
   return (
     <div className={styles.program}>
       <div className={styles.program__text}>
-        <h2 className={styles.program__title}>{`${name} ${calories} ккал`}</h2>
+        <h2 className={styles.program__title}>{name} {calories ? `${calories} ккал` : ''}</h2>
         <p className={styles.program__info}>{description}</p>
       </div>
 
       <button onClick={toggleFavorite} className={styles.program__likeButton}>
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill={isFavorite ? '#64D370' : 'none'}
-    stroke="#64D370"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>
-</button>
-
-
-
+        <svg width="24" height="24"
+          viewBox="0 0 24 24"
+          fill={isFavorite ? '#64D370' : 'none'}
+          stroke="#64D370"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </button>
 
       <Tabs>
         <TabList>
-          {days.map((day) => (
-            <Tab key={day.day}>{day.day_name}</Tab>
+          {Object.keys(plans).map((dayOfWeek) => (
+            <Tab key={dayOfWeek}>{shortDayOfWeek(dayOfWeek)}</Tab>
           ))}
         </TabList>
 
-        {days.map((day) => (
-          <TabPanel key={day.day}>
-            {day.meals.map((meal, mealIndex) => (
-              <div className={styles.program__menu_wrap} key={mealIndex}>
+        {Object.entries(plans).map(([dayOfWeek, meals]) => (
+          <TabPanel key={dayOfWeek}>
+            {Object.entries(meals).map(([type, {text, kcal, gram}]) => (
+              <div className={styles.program__menu_wrap} key={type}>
                 <div className={styles.program__name}>
-                  <h4 className={styles.program__name_title}>{meal.name}</h4>
-                  <p className={styles.program__time}>{meal.time}</p>
+                  <h4 className={styles.program__name_title}>{localeMeals(type)}</h4>
+                  <p className={styles.program__time}>{mealsTime(type)}</p>
                 </div>
-                {meal.items.map((item, itemIndex) => (
-                  <div key={itemIndex} className={styles.program__menu}>
-                    <p className={styles.program__menu_name}>- {item.menu}</p>
-                    <p className={styles.program__menu_time}>{item.weight}</p>
+                {/* {meal.items.map((item, itemIndex) => ( */}
+                  <div className={styles.program__menu}>
+                    <p className={styles.program__menu_name}>- {text}</p>
+                    { gram && (<p className={styles.program__menu_time}>{gram} гр.</p>) }
                   </div>
-                ))}
+                {/* ))} */}
               </div>
             ))}
           </TabPanel>
