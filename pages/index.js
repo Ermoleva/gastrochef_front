@@ -1,8 +1,8 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import 'swiper/swiper-bundle.min.css';
-import queries from '../data/queries';
+import queries, { getServerAuthQuery } from '../data/queries';
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import Slider from "../components/Slider";
@@ -12,13 +12,17 @@ import Form from "../components/FormPages";
 import PhotosSwiper from "../components/PhotosSwiper";
 import Program from "../components/Program/Program";
 import ProgramSlider from "../components/Program/ProgramSlider";
+import authRequire from "../data/auth.require";
+import tokens from '../data/tokens';
 
-export default function Home({accordion, programs}) {
+export default function Home({accordion, programs, user}) {
   const [selectedLink, setSelectedLink] = useState("program");
 
-  const handleLinkClick = (link) => {
-    setSelectedLink(link);
-  };
+  useEffect(() => {
+    if (!user?.new_tokens) return;
+    tokens.setTokens(user.new_tokens);
+  }, [user]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -44,11 +48,13 @@ export default function Home({accordion, programs}) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req,res }) {
+  const user = await authRequire(req, res);
   const res1 = await queries.get('/faq');
-  const res2 = await queries.get('/mealplan');
+  const res2 = await getServerAuthQuery(req, '/mealplan');
   return {
     props: {
+      user: user || null,
       accordion: res1.data,
       programs: res2.data
     },

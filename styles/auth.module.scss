@@ -1,0 +1,58 @@
+
+.auth {
+    margin: 0; padding: 0;
+    &__page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: white;
+    }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        min-width: 400px;
+        min-height: 200px;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    &__input {
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid black;
+    }
+    &__buttons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__button {
+        background-color: #1baf3b;
+        color: white;
+        padding: 5px 10px;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        &:hover {
+            background-color: #1aa037;
+        }
+    }
+}

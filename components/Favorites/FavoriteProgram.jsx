@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './favorites.module.scss';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { postAuthQuery } from '../../data/queries';
 
-const FavoriteProgram = ({ program, onFavoriteToggle }) => {
-  const { name, calories, description } = program;
+const FavoriteProgram = ({ program, onUnlike }) => {
+  const { name, calories, description, plans } = program;
+  const [isFavorite, setIsFavorite] = useState(program.isFavorite || false);
   const router = useRouter();
 
+  
   const toggleFavorite = async () => {
+    const fav = !isFavorite;
     try {
-      const newIsFavorite = !program.isFavorite;
-      const response = await axios.patch(`http://localhost:5000/programs/${program.id}`, {
-        isFavorite: newIsFavorite,
+      if (!fav && onUnlike) onUnlike();
+      setIsFavorite(fav);
+      await postAuthQuery('/mealplan/favorite', {
+        id: program.id, like: fav
       });
-
-      if (response.status === 200) {
-        onFavoriteToggle(program.id);
-      }
+      console.log("set favorite")
     } catch (error) {
+      setIsFavorite(!fav);
       console.error('Ошибка при изменении isFavorite:', error);
     }
   };
@@ -28,7 +31,7 @@ const FavoriteProgram = ({ program, onFavoriteToggle }) => {
         <h2
           className={styles.favoriteProgram__title}
           onClick={() => router.push('/')}
-        >{`${name} ${calories} ккал`}</h2>
+        >{name} {calories ? `${calories} ккал` : ''}</h2>
         <p className={styles.favoriteProgram__info}>{description}</p>
       </div>
 
@@ -37,7 +40,7 @@ const FavoriteProgram = ({ program, onFavoriteToggle }) => {
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          fill={program.isFavorite ? '#64D370' : 'none'}
+          fill={isFavorite ? '#64D370' : 'none'}
           stroke="#64D370"
           strokeWidth="2"
           strokeLinecap="round"

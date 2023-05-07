@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import styles from './styles.module.scss';
-import axios from 'axios';
+import queries, { postAuthQuery } from '../../data/queries';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/router';
 
 
 const weekDays = {
@@ -37,22 +39,35 @@ function mealsTime(meals) {
 
 const Program = ({ program }) => {
   const { name, calories, description, plans } = program;
-  const [isFavorite, setIsFavorite] = useState(program.isFavorite);
+  const [isFavorite, setIsFavorite] = useState(program.isFavorite || false);
+  const router = useRouter();
 
   const handleLikeButtonClick = () => {
     setIsFavorite(!isFavorite);
   };
+
+
   const toggleFavorite = async () => {
+    const fav = !isFavorite;
     try {
-      const newIsFavorite = !isFavorite;
-      const response = await axios.patch(`http://localhost:5000/programs/${program.id}`, {
-        isFavorite: newIsFavorite,
+      setIsFavorite(fav);
+      await postAuthQuery('/mealplan/favorite', {
+        id: program.id, like: fav
       });
-  
-      if (response.status === 200) {
-        setIsFavorite(newIsFavorite);
-      }
+      console.log("set favorite")
     } catch (error) {
+      if ((Array.isArray(error) && error[1] == 401) || error?.response?.status == 401) {
+        Swal.fire({
+          title: "Ви не авторізовані",
+          icon: "error",
+          confirmButtonText: "Авторизуватись"
+        }).then((res) => {
+          if (res.isConfirmed) {
+            router.push('/login')
+          }
+        });
+      }
+      setIsFavorite(!fav);
       console.error('Ошибка при изменении isFavorite:', error);
     }
   };
