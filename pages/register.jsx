@@ -45,7 +45,7 @@ const Register = () => {
         <input className={styles.auth__input} 
         type="text" id="register-email"/>
 
-        <p className={styles.auth__label}>Phone (необов'язково)</p>
+        <p className={styles.auth__label}>{`Phone (необов'язково)`}</p>
         <input className={styles.auth__input} 
         type="text" id="register-phone"/>
 
