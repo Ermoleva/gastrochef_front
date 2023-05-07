@@ -4,7 +4,7 @@ import styles from "../styles/auth.module.scss";
 import { useRouter } from "next/router";
 import tokens from '../data/tokens';
 
-const register = () => {
+const Register = () => {
   const router = useRouter();
 
   async function register() {
@@ -66,4 +66,4 @@ const register = () => {
   );
 }
   
-export default register;
+export default Register;
