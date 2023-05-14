@@ -51,7 +51,7 @@ export default function Slider() {
                 </div>
                 <Image
                   className={styles.slider__item_image}
-                  src={`/../public/images/${ban.image}`}
+                  src={`/images/${ban.image}`}
                   width={794}
                   height={794}
                 />

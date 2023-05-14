@@ -7,10 +7,16 @@ import { getAuthQuery } from '../../data/queries';
 
 const Favorites = () => {
     const [programs, setPrograms] = useState([]);
+    const [candies, setCandies] = useState([]);
   
     useEffect(() => {
       getAuthQuery('/mealplan').then(res => {
         setPrograms(res.data);
+      }).catch(err => {
+        console.error('Ошибка при загрузке программ:', error);
+      })
+      getAuthQuery('/candies').then(res => {
+        setCandies(res.data);
       }).catch(err => {
         console.error('Ошибка при загрузке программ:', error);
       })
