@@ -47,12 +47,12 @@ export default function Form() {
     <div className={styles.form}>
       <h2 className={styles.form__title}>Оформить заказ</h2>
       <p className={styles.form__subtitle}>
-        Обсудите все детали заказа по телефону или сами укажите все подробности
+      Обговоріть усі деталі замовлення за телефоном або самі вкажіть усі подробиці
         онлайн
       </p>
       <form onSubmit={handleSubmit}>
         <label className={styles.input_wrapper}>
-          <p className={styles.form__input_name}>Имя </p>
+          <p className={styles.form__input_name}>Імя </p>
           <input
             className={styles.form__input}
             type="text"
@@ -69,7 +69,7 @@ export default function Form() {
           {nameError === "" && <span className={styles.valid_indicator} />}
         </label>
         <label className={styles.input_wrapper}>
-          <p className={styles.form__input_name}> Номер телефона</p>
+          <p className={styles.form__input_name}> Номер телефону</p>
           <input
             className={styles.form__input}
             type="tel"
@@ -90,7 +90,7 @@ export default function Form() {
             <div className={styles.back__form_checkbox_wrapp}>
               <label className={styles.back__form_checkbox}>
                 <input type="checkbox" name="radio" />
-                <p>Тест-день! Получить скидку -30%?</p>
+                <p>Тест-день! Отримати знижку –30%?</p>
                 <span className={styles.checkmark}> </span>
               </label>
             </div>

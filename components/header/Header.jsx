@@ -67,16 +67,7 @@ export default function Header() {
         >
           О нас
         </Link>
-        <Link 
-        
-        href="/favorites"
-        className={`${styles.header__link} ${
-          selectedLink === "favorites" ? styles.selected : ""
-        }`}
-        onClick={() => {handleLinkClick("favorites"),closeMenu()}}
-      >
-        Favorites
-      </Link>
+       
         <Link 
         
           href="/blog"
@@ -87,15 +78,40 @@ export default function Header() {
         >
           Блог
         </Link>
+        
         <Link href="tel:+380636529793" className={styles.header__phone_number_mobile}>
           <p> +38 (063) 652-97-93</p>
         </Link>
       </div>
+      <div className={styles.header__right}>
+      <div className={styles.header__favorites}>
+      <Link 
+        
+        href="/favorites"
+        className={`${styles.header__link} ${
+          selectedLink === "favorites" ? styles.selected : ""
+        }`}
+        onClick={() => {handleLinkClick("favorites"),closeMenu()}}
+      >
+         <svg className={styles.header__favorites_svg} width="24" height="24"
+          viewBox="0 0 24 24"
+          fill='#fff'
+          stroke="#64D370"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </Link>
+      </div>
       <div className={styles.header__phone}>
+      
         <Link href="tel:+380636529793" className={styles.header__phone_number}>
           <p> +38 (063) 652-97-93</p>
           <Image src={phone} className={styles.header__phone_number_icon} width={64} height={64}/> 
         </Link>
+      </div>
       </div>
     </header>
   );

@@ -14,13 +14,13 @@ export default function Footer() {
       <div className={styles.footer__container}>
         <div className={styles.footer__links}>
           <Link href="/" className={styles.footer__link}>
-            Программа питания
+          Програми харчування
           </Link>
           <Link href="/lunch" className={styles.footer__link}>
-            Бизнес ланчи
+          Бізнес ланчі
           </Link>
           <Link href="/shop" className={styles.footer__link}>
-            Gastro Shop
+          Gastro Shop
           </Link>
           <Link href="/about" className={styles.footer__link}>
             О нас
@@ -35,15 +35,15 @@ export default function Footer() {
             src={logo}
             layout={"raw"}
           />
-          <p className={styles.footer__logo_text}>сервис здорового питания</p>
+          <p className={styles.footer__logo_text}>сервіс здорового харчування</p>
         </div>
         <div className={styles.footer__social}>
           <a
             href="src/components/section/footer#"
             className={styles.footer__social_link}
           >
-            Условия <br />
-            сотрудничества
+            Умови <br />
+            співробітництва
           </a>
           <a
             href="src/components/section/footer#"

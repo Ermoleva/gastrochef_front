@@ -19,7 +19,7 @@ export default function Advantages() {
             height={63}
           />
           <p className={styles.advantages__item_text}>
-            Бережём природу. Эко-тара и проборы.
+          Бережемо природу. Еко-тара та проділи.
           </p>
         </div>
         <div className={styles.advantages__item}>
@@ -30,7 +30,7 @@ export default function Advantages() {
             height={63}
           />
           <p className={styles.advantages__item_text}>
-            28 дней без повторения, более 300 блюд!
+          28 днів без повторення, понад 300 страв!
           </p>
         </div>
         <div className={styles.advantages__item}>
@@ -41,7 +41,7 @@ export default function Advantages() {
             height={63}
           />
           <p className={styles.advantages__item_text}>
-            Бесплатно заменяем блюда и ингредиенты.
+          Безкоштовно замінюємо страви та інгредієнти.
           </p>
         </div>
         <div className={styles.advantages__item}>
@@ -52,7 +52,7 @@ export default function Advantages() {
             height={63}
           />
           <p className={styles.advantages__item_text}>
-            Готовим ночью, упаковываем и отправляем Вам!
+          Готуємо вночі, упаковуємо та відправляємо Вам!
           </p>
         </div>
         <div className={styles.advantages__item}>
@@ -63,7 +63,7 @@ export default function Advantages() {
             height={63}
           />
           <p className={styles.advantages__item_text}>
-            Ежедневная удобная и бесплатная доставка с 6:00 до 10:00
+          Щоденна зручна та безкоштовна доставка з 10:00 до 22:00
           </p>
         </div>
         <div className={styles.advantages__item}>
@@ -74,7 +74,7 @@ export default function Advantages() {
             height={63}
           />
           <p className={styles.advantages__item_text}>
-            Сохраняем Вашу энергию и до 14 часов в неделю освобождая от готовки!
+          Зберігаємо Вашу енергію і до 14 години на тиждень звільняючи від готування!
           </p>
         </div>
       </div>

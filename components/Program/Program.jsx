@@ -77,11 +77,9 @@ const Program = ({ program }) => {
   return (
     <div className={styles.program}>
       <div className={styles.program__text}>
+        <div className={styles.program__title_wrap}>
         <h2 className={styles.program__title}>{name} {calories ? `${calories} ккал` : ''}</h2>
-        <p className={styles.program__info}>{description}</p>
-      </div>
-
-      <button onClick={toggleFavorite} className={styles.program__likeButton}>
+        <button onClick={toggleFavorite} className={styles.program__likeButton}>
         <svg width="24" height="24"
           viewBox="0 0 24 24"
           fill={isFavorite ? '#64D370' : 'none'}
@@ -93,6 +91,12 @@ const Program = ({ program }) => {
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
         </svg>
       </button>
+        </div>
+        
+        <p className={styles.program__info}>{description}</p>
+      </div>
+
+      
 
       <Tabs>
         <TabList>

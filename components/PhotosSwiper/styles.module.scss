@@ -1,9 +1,43 @@
-.photos{
-    margin-top: 90px;
-}
-
-.photo {
-    width: 380px !important;
-    height: auto !important;
-    margin-right: 20px !important;
-}
+.photos {// padding on sides to prevent overflow
+    
+    .photo {
+      margin-right: 20px; // margin to create space between slides
+  
+      .photo__img {
+        width: 380px;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 1530px) {
+    .photos {
+      .photo {
+        .photo__img {
+          width: 300px;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 940px) {
+    .photos {
+      .photo {
+        .photo__img {
+          width: 250px;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .photos {
+      .photo {
+        .photo__img {
+          width: 200px;
+        }
+      }
+    }
+  }
+  

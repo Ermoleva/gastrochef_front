@@ -17,9 +17,9 @@ export default function CandyItem({candyItem, increase, decrease}) {
                 {description}
             </p>
             <div className={styles.product__item_wrapp}>
-                <p className={styles.product__item_cont}> Белки - {proteins} </p>
-                <p className={styles.product__item_cont}>Жиры - {fats}</p>
-                <p className={styles.product__item_cont}>Углеводы - {carbohydrates}</p>
+                <p className={styles.product__item_cont}> Білки - {proteins} </p>
+                <p className={styles.product__item_cont}>Жири - {fats}</p>
+                <p className={styles.product__item_cont}>Вуглеводи - {carbohydrates}</p>
                 <p className={styles.product__item_cont}>{kcal} ккал</p>
             </div>
             <div className={styles.product__count}>

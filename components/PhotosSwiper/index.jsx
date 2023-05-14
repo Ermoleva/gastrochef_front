@@ -1,32 +1,60 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import Image from "next/image";
-import {photos} from "../../data/Gallery";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import Slider from "react-slick";
+import { photos } from "../../data/Gallery";
 import styles from "./styles.module.scss";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper";
+// Import slick styles
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export default function PhotosSwiper() {
+  const settings = {
+    dots: false,
+    infinite: true,
+    centerMode: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1530,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 940,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      }
+    ]
+  };
+
   return (
     <div className={styles.photos}>
-      <Swiper
-        slidesPerView={5}
-        spaceBetween={5}
-        modules={[Pagination]}
-        className="photosSwiper"
-      >
+      <Slider {...settings}>
         {photos.map((item) => (
-          <SwiperSlide key={item.id} className={styles.photo}>
-            <Image src={`/images/${item.image}`} width="380" height="570" />
-          </SwiperSlide>
+          <div key={item.id} className={styles.photo}>
+            <Image className={styles.photo__img} src={`/images/${item.image}`} width="380" height="570" />
+          </div>
         ))}
-      </Swiper>
+      </Slider>
     </div>
   );
 }

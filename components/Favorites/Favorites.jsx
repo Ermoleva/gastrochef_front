@@ -22,6 +22,7 @@ const Favorites = () => {
     }
   
     const favoritePrograms = programs.filter(p => p.isFavorite);
+    const favoriteCandies = candies.filter(p => p.isFavorite);
     
     return (
       <div className={styles.favorites}>
@@ -37,7 +38,7 @@ const Favorites = () => {
             ))}
           </div>
         ) : (
-          <p>Понравившихся товаров нет.</p>
+          <p>Сподобаних товарів немає.</p>
         )}
       </div>
     );

@@ -39,7 +39,7 @@
       background: #F5FAFF;
       box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
       border-radius: 190px;
-      width: 880px;
+      width: 800px;
       height: 52px;
     }
   }
@@ -49,9 +49,21 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 133.8%;
-    margin-right: 40px;
+    margin-right: 20px;
   }
-
+  &__right{
+    display: flex;
+    align-items: center;
+  }
+  &__favorites_svg{
+    width: 30px;
+    height: 30px;
+  }
+  &__favorites{
+    a{
+      margin-right: 0;
+    }
+  }
   .logo {
     width: 264px;
     height: 264px;
@@ -145,7 +157,7 @@
 
   }
 
-  @media (max-width:1000px) {
+  @media (max-width:1120px) {
     .logo {
       width: 150px;
       height: 150px;
@@ -172,7 +184,7 @@
     }
   }
 
-  @media (max-width:835px) {
+  @media (max-width:980px) {
     &__link {
       font-size: 10px;
     }
@@ -185,6 +197,7 @@
 
     &__phone {
       width: 160px;
+      margin-right: 10px;
     }
 
     &__phone_number p {
@@ -192,7 +205,7 @@
     }
   }
 
-  @media (max-width:760px) {
+  @media (max-width:870px) {
     &__phone_number p {
       display: none;
     }
@@ -210,9 +223,12 @@
     }
   }
 
-  @media (max-width:650px) {
+  @media (max-width:760px) {
     width: 100%;
-
+    &__favorites_svg{
+      width: 44px;
+      height: 44px;
+    }
     &__phone {
       margin-right: 100px;
     }
@@ -283,7 +299,5 @@
     }
 
   }
-  @media (max-width:450px){
-
-  }
+ 
 }

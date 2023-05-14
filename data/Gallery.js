@@ -22,5 +22,17 @@ export const photos= [
   {
     "id": "1446",
     "image": "photo6.png"
-  }
+  },
+  {
+    "id": "1447",
+    "image": "photo1.png"
+  },
+  {
+    "id": "1448",
+    "image": "photo2.png"
+  },
+  {
+    "id": "1449",
+    "image": "photo3.png"
+  },
 ]

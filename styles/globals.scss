@@ -15,6 +15,10 @@ html {
   height: 100%;
 }
 
+a {
+  margin: 0;
+}
+
 html,
 body {
   padding: 0;
@@ -50,7 +54,8 @@ a {
 li {
   list-style: none;
 }
-.content{
+
+.content {
   min-height: 100vh;
 }
 
@@ -154,86 +159,191 @@ li {
   .css-15v22id-MuiAccordionDetails-root {
     padding: 0 16px 16px !important;
   }
-  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded{
+
+  .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
     min-height: 50px !important;
   }
-  .css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
+
+  .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
     margin: 15px 0 !important;
   }
 }
-.about_photo{
+
+.about_photo {
   width: 100%;
   height: auto;
 }
-.form__flex{
+
+.form__flex {
   display: flex;
-  
+
   width: 1280px;
-      margin: 0 auto;
+  margin: 0 auto;
   justify-content: space-between;
   margin-top: 150px;
   align-items: center;
 
   @media (max-width: 1330px) {
-      width: 95%;
+    width: 95%;
   }
+
   @media (max-width: 1000px) {
-      flex-direction: column;
+    flex-direction: column;
   }
-  @media (max-width: 600px){
-      margin-top: 80px;
+
+  @media (max-width: 600px) {
+    margin-top: 80px;
   }
 }
 
-.about_photo{
+.about_photo {
   margin-top: 120px;
-  @media(max-width: 600px){
+
+  @media(max-width: 600px) {
     margin-top: 60px;
   }
 }
 
 .modal__select__control.css-13cymwt-control,
-.modal__select__control.modal__select__control--is-focused.css-t3ipsp-control{
+.modal__select__control.modal__select__control--is-focused.css-t3ipsp-control {
   border-radius: 190px !important;
 }
-.modal__select__menu{
+
+.modal__select__menu {
   margin-top: 0 !important;
 }
-.react-tabs__tab-list{
+
+.react-tabs__tab-list {
   border-bottom: none !important;
+  width: 80% !important;
+  margin: 20px auto 20px !important;
+  background: #F5FAFF;
+  box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+  border-radius: 30px;
+  display: flex !important;
+  justify-content: space-between !important;
 }
-.react-tabs__tab--selected{
+.react-tabs__tab-panel.react-tabs__tab-panel--selected{
+  height: 430px;
+}
+@media(max-width:1000px){
+  .react-tabs__tab-panel.react-tabs__tab-panel--selected{
+    height: 250px !important;
+  }
+  .react-tabs__tab{
+    font-weight: 700 !important;
+font-size: 10px !important;
+line-height: 11px !important;
+  }
+}
+.react-tabs__tab-panel--selected{
+  display: flex !important;
+  flex-direction: column !important; 
+  justify-content: space-around !important;
+}
+
+.react-tabs__tab {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+
+}
+
+.react-tabs__tab--selected {
   font-family: 'Comfortaa';
   border-color: transparent !important;
   border: none !important;
   color: $green-color !important;
-  background: transparent  !important;
+  background: transparent !important;
 
 }
-.react-tabs__tab--selected::after,.react-tabs__tab--selected::before{
+
+.react-tabs__tab--selected::after,
+.react-tabs__tab--selected::before {
   display: none;
 }
-.program-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+
+.program-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 200px !important;
   background: transparent !important;
 }
-.program-swiper .swiper-pagination-bullet{
+
+.program-swiper .swiper-pagination-bullet {
   width: 200px !important;
   background: transparent !important;
 }
-.program-swiper .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after,.swiper-button-next:after, .swiper-button-prev:after{
+
+.program-swiper .swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after,
+.swiper-button-next:after,
+.swiper-button-prev:after {
   color: $green-color;
-  
+
 }
-.program-swiper .swiper-scrollbar{
+
+.program-swiper .swiper-scrollbar {
   background: transparent !important;
 }
-.react-tabs__tab-panel--selected{
+
+.react-tabs__tab-panel--selected {
   width: 700px;
   box-sizing: border-box;
   padding: 40px 20px;
-        background: #F5FAFF;
-        box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
-        border-radius: 30px;
-        box-sizing: border-box;
+  background: #F5FAFF;
+  box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
+  border-radius: 30px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media(max-width:1200px){
+  .react-tabs{
+    width: 60%;
+  }
+  .react-tabs__tab-panel--selected {
+    width: 100%;
+  }
+}
+@media(max-width:700px){
+  .react-tabs__tab{
+    padding: 6px 6px !important;
+  }
+  .react-tabs__tab-list{
+    width: 100% !important;
+  }
+}
+.swiper-button-next, .swiper-button-prev {
+  width: 20px !important;
+  height: 50px !important;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 36px !important;
+}
+@media(max-width:500px){
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 26px !important;
+  }
+  .react-tabs{
+    width: 80%;
+  }
+  .program-swiper .swiper-pagination-bullet, .swiper-pagination-bullet .swiper-pagination-bullet-active, .program-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    width: 70px !important;
+    font-size: 12px !important;
+  }
+  .swiper-pagination {
+    display: none !important;
+  }
+}
+
+.slick-slide:focus {
+  outline: none !important;
 }

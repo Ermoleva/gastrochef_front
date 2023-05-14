@@ -1,44 +1,198 @@
-.program{
+.program {
     display: flex;
     justify-content: center;
     align-items: center;
-    &__text{
+
+    &__text {
         width: 300px;
     }
-    &__title{
-        font-family: "Comfortaa";
-        font-size: 24px;
+
+    &__title {
+        font-family: 'Comfortaa';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 28px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #000;
     }
-    &__info{
+
+    &__title_wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__likeButton {
+        background: transparent;
+        cursor: pointer;
+        border: none;
+        padding-left: 17px;
+    }
+
+    &__info {
+        padding-top: 10px;
         font-size: 16px;
+        max-width: 280px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+
+        color: #000;
+
     }
-    &__menu_wrap{
+
+    &__menu_wrap {
         display: flex;
         margin: 0 auto;
-        width:650px;
+        width: 650px;
         justify-content: space-between;
-        
+
     }
-    &__wrap{
+
+    &__menu_wrap+&__menu_wrap {
+        padding-top: 25px;
+    }
+
+    &__wrap {
         width: 700px;
         background: #F5FAFF;
         box-shadow: 0px 0px 40px rgba(86, 86, 86, 0.3);
         border-radius: 30px;
         box-sizing: border-box;
     }
-    &__name{
+
+    &__name {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 190px;
+
+        h4 {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+
+            color: #000000;
+
+        }
+
+        p {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 22px;
+            /* identical to box height */
+
+
+            color: #000000;
+
+        }
     }
-    &__menu{
+
+    &__menu {
         display: flex;
         width: 480px;
         justify-content: space-between;
-    }
-    &__menu_name{
-        width: 500px;
+
+        p {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 22px;
+            color: #000000;
+        }
     }
 
+}
+
+@media(max-width:1200px) {
+    .program {
+        &__menu_wrap {
+            width: 100%;
+        }
+
+        &__menu {
+            width: 100%;
+        }
+
+        &__text {
+            width: 30%;
+        }
+    }
+}
+
+@media(max-width:1000px) {
+    .program {
+        width: 95%;
+        margin: 0 auto;
+        &__title{
+            font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+        }
+        &__info{
+            font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+        }
+        &__likeButton svg{
+            width: 20px;
+            height: 20px;
+        }
+        &__name {
+            h4 {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 10px;
+                line-height: 12px;
+
+                color: #000000;
+
+            }
+
+            p {
+                font-weight: 300;
+                font-size: 8px;
+                line-height: 10px;
+
+            }
+        }
+        &__menu{
+            p{
+                font-weight: 300;
+font-size: 10px;
+line-height: 12px;
+            }
+        }
+    }
+}
+
+@media(max-width:700px){
+    .program{
+        flex-direction: column;
+        &__text{
+            width: 250px;
+        }
+        &__menu_wrap{
+            flex-direction: column;
+        }
+        &__name{
+            flex-direction: row;
+            justify-content: flex-start;
+            p{
+                padding-left: 15px;
+            }
+        }
+        &__menu p+p{
+            display: none;
+        }
+    }
 }

@@ -23,7 +23,7 @@ export default function Articles({articles}) {
               <div className={styles.articles__info}>
                 <p className={styles.articles__date}>29.05.2020</p>
                 <button className={styles.articles__btn}>
-                  <Link href={{pathname: '/article', query : {article: article.id}}}>Подробнее</Link>
+                  <Link href={{pathname: '/article', query : {article: article.id}}}>Детальніше</Link>
                 </button>
               </div>
             </div>
