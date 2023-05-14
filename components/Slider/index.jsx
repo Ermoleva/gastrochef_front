@@ -12,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import styles from "./styles.module.scss";
 import { banners } from "../../data/Banners";
 import Link from "next/link";
-import SuperImage from "../SuperImage";
+import SuperImage from "../Images/SuperImage";
 
 export default function Slider() {
   return (

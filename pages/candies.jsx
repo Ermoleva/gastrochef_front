@@ -11,7 +11,7 @@ import CandyItemModal from "../components/Modal/CandyItemModal";
 import Modal from "../components/Modal/ModalCandy";
 import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
-import queries from "../data/queries";
+import queries, { postQuery } from "../data/queries";
 
 export default function Candies(props) {
   const initCardData = [...props.candies];
@@ -140,16 +140,18 @@ export default function Candies(props) {
           <div className={styles.product__items}>{candies}</div>
         </div>
       </div>
-      <PhotosSwiper />
+      <PhotosSwiper photos={props.photos}/>
     </div>
   );
 }
 
 export async function getServerSideProps() {
   const res = await queries.get('/candies');
+  const photos = await postQuery('/gallery/getall');
   return {
     props: { 
-      candies: res.data 
+      candies: res.data,
+      photos: photos.data
     },
   };
 }

@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
-import { photos } from "../../data/Gallery";
 import styles from "./styles.module.scss";
 
 // Import slick styles
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import ServerImage from "../Images/ServerImage";
 
-export default function PhotosSwiper() {
+export default function PhotosSwiper({photos}) {
   const settings = {
     dots: false,
     infinite: true,
@@ -49,9 +49,11 @@ export default function PhotosSwiper() {
   return (
     <div className={styles.photos}>
       <Slider {...settings}>
-        {photos.map((item) => (
-          <div key={item.id} className={styles.photo}>
-            <Image className={styles.photo__img} src={`/images/${item.image}`} width="380" height="570" />
+        {photos.map((photo) => (
+          <div key={photo} className={styles.photo}>
+            <ServerImage src={photo} type='gallery'
+            className={styles.photo__img}
+            width="380" height="570"/>
           </div>
         ))}
       </Slider>
