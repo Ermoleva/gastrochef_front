@@ -11,8 +11,8 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import styles from "./styles.module.scss";
 import { banners } from "../../data/Banners";
-import Image from "next/image";
 import Link from "next/link";
+import SuperImage from "../Images/SuperImage";
 
 export default function Slider() {
   return (
@@ -49,11 +49,9 @@ export default function Slider() {
                     </p>
                   </div>
                 </div>
-                <Image
-                  className={styles.slider__item_image}
-                  src={`/images/${ban.image}`}
-                  width={794}
-                  height={794}
+                <SuperImage
+                className={styles.slider__item_image}
+                src={ban.image} width={794} height={794}
                 />
               </div>
             </SwiperSlide>

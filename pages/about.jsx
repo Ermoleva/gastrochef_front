@@ -7,16 +7,16 @@ import AccordionMy from "../components/Accordion";
 import Form from "../components/FormPages";
 import PhotosSwiper from '../components/PhotosSwiper';
 import GastroChefEasy from '../components/GastroChefEasy';
-import queries from '../data/queries';
+import queries, { postQuery } from '../data/queries';
 
-export default function about({accordion}) {
+export default function about({accordion, photos}) {
   return (
     <div>
       <AboutMe />
       <HistoryGastroChef/>
       <Image className="about_photo" src={photo}  layout={'raw'}/>
       <GastroChefEasy />
-      <PhotosSwiper />
+      <PhotosSwiper photos={photos}/>
       <div className="form__flex"x>
         <Form />
         <AccordionMy accordion={accordion}/>
@@ -28,9 +28,11 @@ export default function about({accordion}) {
 
 export async function getServerSideProps() {
   const res = await queries.get('/faq');
+  const photos = await postQuery('/gallery/getall');
   return {
     props: {
-      accordion: res.data
+      accordion: res.data,
+      photos: photos.data
     },
   };
 }

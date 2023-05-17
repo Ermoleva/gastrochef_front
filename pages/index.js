@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import 'swiper/swiper-bundle.min.css';
-import queries, { getServerAuthQuery } from '../data/queries';
+import queries, { getServerAuthQuery, postQuery } from '../data/queries';
 import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import Slider from "../components/Slider";
@@ -15,7 +15,7 @@ import ProgramSlider from "../components/Program/ProgramSlider";
 import authRequire from "../data/auth.require";
 import tokens from '../data/tokens';
 
-export default function Home({accordion, programs, user}) {
+export default function Home({accordion, programs, user, photos}) {
   const [selectedLink, setSelectedLink] = useState("program");
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Home({accordion, programs, user}) {
         <div className={styles.program__container}>
         <ProgramSlider programs={programs} />
         </div>
-        <PhotosSwiper />
+        <PhotosSwiper photos={photos}/>
         <div className="form__flex"x>
         <Form />
         <AccordionMy accordion={accordion}/>
@@ -52,11 +52,13 @@ export async function getServerSideProps({ req,res }) {
   const user = await authRequire(req, res);
   const res1 = await queries.get('/faq');
   const res2 = await getServerAuthQuery(req, '/mealplan');
+  const photos = await postQuery('/gallery/getall');
   return {
     props: {
       user: user || null,
       accordion: res1.data,
-      programs: res2.data
+      programs: res2.data,
+      photos: photos.data
     },
   };
 }

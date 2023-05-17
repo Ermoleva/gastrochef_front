@@ -9,7 +9,7 @@ import LunchItemModal from "../components/Modal/LunchItemModal";
 import Modal from "../components/Modal/ModalLunch";
 import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
-import queries from "../data/queries";
+import queries, { postQuery } from "../data/queries";
 
 export default function Lunch(props) {
   const initCardData = [...props.businesslunch];
@@ -152,16 +152,18 @@ export default function Lunch(props) {
           <div className={styles.product__items}>{lunch}</div>
         </div>
       </section>
-      <PhotosSwiper />
+      <PhotosSwiper photos={props.photos}/>
     </>
   );
 }
 
 export async function getServerSideProps() {
   const res = await queries.get('/businesslunch');
+  const photos = await postQuery('/gallery/getall');
   return {
     props: { 
-      businesslunch: res.data 
+      businesslunch: res.data,
+      photos: photos.data
     },
   };
 }
