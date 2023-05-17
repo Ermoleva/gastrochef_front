@@ -180,7 +180,7 @@ export default function ModalOnline({ active, setActive, cart }) {
             className={styles.modal__mistake}
             onClick={() => setActive(false)}
           >
-            Заполните все поля правильно
+            Заповніть усі поля правильно
           </h2>
           <Image
             onClick={() => setActive(false)}
@@ -195,7 +195,7 @@ export default function ModalOnline({ active, setActive, cart }) {
             <input
               className={styles.modal__input}
               required
-              placeholder="имя"
+              placeholder="ім'я"
               name="name"
               type="text"
               id="name"
@@ -203,7 +203,7 @@ export default function ModalOnline({ active, setActive, cart }) {
             <input
               className={styles.modal__input}
               required
-              placeholder="Введите номер телефона"
+              placeholder="Введіть номер телефону"
               name="tel"
               type="text"
               id="phone"
@@ -212,7 +212,7 @@ export default function ModalOnline({ active, setActive, cart }) {
               <input
                 className={styles.modal__input}
                 required
-                placeholder="Улица"
+                placeholder="Вулиця"
                 name="name"
                 type="text"
                 id="street"
@@ -228,7 +228,7 @@ export default function ModalOnline({ active, setActive, cart }) {
               <input
                 className={styles.modal__input}
                 required
-                placeholder="Этаж:"
+                placeholder="Поверх:"
                 name="name"
                 type="text"
                 id="floor"
@@ -244,7 +244,7 @@ export default function ModalOnline({ active, setActive, cart }) {
               <input
                 className={styles.modal__input}
                 required
-                placeholder="Парадное:"
+                placeholder="Парадне:"
                 name="name"
                 type="text"
                 id="front-door"
@@ -266,7 +266,7 @@ export default function ModalOnline({ active, setActive, cart }) {
               onChange={(n) => setTimeDelivery(n.value)}
               // value={getValueTime()}
               options={time}
-              placeholder="Время доставки"
+              placeholder="Час доставки"
               styles={customStyles}
             />
             <Select
@@ -274,7 +274,7 @@ export default function ModalOnline({ active, setActive, cart }) {
               onChange={(n) => setPayDelivery(n.value)}
               // value={getValuePay()}
               options={pay}
-              placeholder="Способ оплаты"
+              placeholder="Спосіб оплати"
               styles={customStyles}
             />
             <Select
@@ -282,7 +282,7 @@ export default function ModalOnline({ active, setActive, cart }) {
               onChange={(n) => setWhereKnow(n.value)}
               // value={getValueKnow()}
               options={know}
-              placeholder="Откуда узнали о нас"
+              placeholder="Звідки дізналися про нас"
               styles={customStyles}
             />
             <Select
@@ -290,14 +290,14 @@ export default function ModalOnline({ active, setActive, cart }) {
               onChange={(n) => setConnectUs(n.value)}
               // value={getValueConnect()}
               options={connect}
-              placeholder="Как с Вами связаться?"
+              placeholder="Як з вами зв'язатися?"
               styles={customStyles}
             />
           </div>
         </div>
         <div className={styles.modal__order}>
           <div className={styles.modal__btn} onClick={doOrder}>
-            Заказать
+          Замовити
           </div>
           <div className={styles.modal__total}>
             {count} шт / {price} грн

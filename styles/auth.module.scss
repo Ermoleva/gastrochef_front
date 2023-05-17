@@ -1,4 +1,4 @@
-
+@import "./vars.scss";
 .auth {
     margin: 0; padding: 0;
     &__page {
@@ -10,17 +10,18 @@
         left: 0;
         height: 100vh;
         width: 100vw;
-        background-color: white;
+        background-color: $green-color;
     }
     &__container {
         display: flex;
         flex-direction: column;
         // justify-content: center;
-        min-width: 400px;
+        min-width: 500px;
         min-height: 200px;
-        border: 1px solid black;
-        border-radius: 10px;
-        padding: 20px;
+        
+        border-radius: 30px;
+        padding: 30px 60px;
+        background-color: #fff;
     }
     &__title {
         text-align: center;
@@ -32,9 +33,9 @@
     &__input {
         padding: 5px 10px;
         font-size: 16px;
-        border-radius: 5px;
+        border-radius: 15px;
         outline: none;
-        border: 1px solid black;
+        border: 1px solid #5a5a5a;
     }
     &__buttons {
         margin-top: 10px;

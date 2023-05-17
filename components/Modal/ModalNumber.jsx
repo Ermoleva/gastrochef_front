@@ -12,7 +12,7 @@ export default function ModalNumber({active, setActive}){
 
                 <div className={styles.number__wrapp} onClick={e => e.stopPropagation()}>
                 <div className={styles.number__data}>
-                    <h2 className={styles.number__title}>Имя</h2>
+                    <h2 className={styles.number__title}>Ім'я</h2>
                     <input
                         className={styles.number__input}
                         required
@@ -23,7 +23,7 @@ export default function ModalNumber({active, setActive}){
 
                 </div>
                 <div className={styles.number__data}>
-                    <h2 className={styles.number__title}>Номер телефона</h2>
+                    <h2 className={styles.number__title}>Номер телефону</h2>
                     <input
                         className={styles.number__input}
                         required
@@ -32,7 +32,7 @@ export default function ModalNumber({active, setActive}){
                         type="text"
                     />
                 </div>
-                <div className={styles.number__button} onClick={() => setActive(false)}>Заказать</div>
+                <div className={styles.number__button} onClick={() => setActive(false)}>Замовити</div>
 
 
                 </div>

@@ -45,7 +45,7 @@ export default function Form() {
   }
   return (
     <div className={styles.form}>
-      <h2 className={styles.form__title}>Оформить заказ</h2>
+      <h2 className={styles.form__title}>Оформити замовлення</h2>
       <p className={styles.form__subtitle}>
       Обговоріть усі деталі замовлення за телефоном або самі вкажіть усі подробиці
         онлайн
@@ -97,7 +97,7 @@ export default function Form() {
             <div className={styles.back__form_checkbox_wrapp}>
               <label className={styles.back__form_checkbox}>
                 <input type="checkbox" name="radio" />
-                <p>Согласен с условиями сотрудничества</p>
+                <p>Згоден з умовами співробітництва</p>
                 <span className={styles.checkmark}></span>
               </label>
             </div>
@@ -105,9 +105,9 @@ export default function Form() {
         </div>
 
         <div className={styles.form__buttons}>
-          <button className={styles.form__btn_phone} type="submit">Заказ по телефону</button>
+          <button className={styles.form__btn_phone} type="submit">Замовлення по телефону</button>
           <p className={styles.form__btn_or}>ИЛИ</p>
-          <button className={styles.form__btn_online} type="submit">Онлайн заказ</button>
+          <button className={styles.form__btn_online} type="submit">Онлайн замовлення</button>
         </div>
       </form>
     </div>

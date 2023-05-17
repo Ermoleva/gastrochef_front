@@ -134,7 +134,7 @@ export default function Candies(props) {
               className={styles.product__order}
               onClick={() => setModalCandyActive(true)}
             >
-              Оформить заказ
+              Оформити замовлення
             </button>
           </div>
           <div className={styles.product__items}>{candies}</div>

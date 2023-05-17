@@ -58,7 +58,7 @@ export default function Article({articles}) {
             </div>
           </div>
           <div className={styles.article__share}>
-            <p>Поделиться:</p>
+            <p>Поділитися:</p>
             <div className={styles.article__social_item}>
               <a href="#" className={styles.article__social_img_link}>
                 <Image
@@ -112,11 +112,11 @@ export default function Article({articles}) {
           </a>
           <div className={styles.article__footer_button}>
             <button className={styles.article__footer_btn}>
-              <a href="./home.html">Программы питания</a>
+              <a href="./home.html">Програми харчування</a>
             </button>
           </div>
           <div className={styles.article__share}>
-            <p>Поделиться:</p>
+            <p>Поділитися:</p>
             <div className={styles.article__social_item}>
               <a href="#" className={styles.article__social_img_link}>
                 {" "}
@@ -143,7 +143,7 @@ export default function Article({articles}) {
 
         <div className={styles.article__more}>
           <h2 className={styles.article__more_title}>
-            Вас может заинтересовать:
+          Вас може зацікавити:
           </h2>
           <div className={styles.article__more_items}>
             {displayedItems.map((i) => (
@@ -170,7 +170,7 @@ export default function Article({articles}) {
                         query: { article: i.id },
                       }}
                     >
-                      Подробнее
+                      Детальніше
                     </Link>
                   </button>
                 </div>

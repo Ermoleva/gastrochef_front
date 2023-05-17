@@ -12,7 +12,7 @@ export default function CountLunch({id, priceTotal,count, increase,decrease, pri
             <div className={styles.product__decr} onClick={() => {increase(id)}}>
                 <p>+</p>
             </div>
-            <div className={styles.product__price}>{count ? count : "1"} порция \</div>
+            <div className={styles.product__price}>{count ? count : "1"} порція \</div>
 
             <div className={styles.product__date}>{priceTotal ? priceTotal : priceTotal=+price} грн</div>
         </>

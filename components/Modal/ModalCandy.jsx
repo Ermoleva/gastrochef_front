@@ -31,7 +31,7 @@ const Modal = ({active, setActive, increase, decrease, candiesModal, total, numb
                                 setActive(false)
                                 setOnlineActive(true)
                             }}>
-                                Онлайн заказ
+                                Онлайн замовлення
                             </a>
                         </div>
                         <div className={styles.modal__order_tel} >
@@ -39,7 +39,7 @@ const Modal = ({active, setActive, increase, decrease, candiesModal, total, numb
                                 setActive(false),
                                 setNumberActive(true)
                             }}>
-                                Заказ по телефону
+                                Замовлення по телефону
                             </a>
                         </div>
                     </div>
