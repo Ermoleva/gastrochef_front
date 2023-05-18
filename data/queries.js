@@ -24,5 +24,8 @@ export async function postAuthQuery(url, body) {
         headers: {Authorization: token}
     });
 };
+export async function postQuery(url, body) {
+    return queries.post(url, body);
+};
 
 export default queries;
