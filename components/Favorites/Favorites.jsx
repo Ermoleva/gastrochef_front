@@ -32,7 +32,7 @@ const Favorites = () => {
     
     return (
       <div className={styles.favorites}>
-        <h2>Избранные товары</h2>
+        <h2>улюблені товари</h2>
         {favoritePrograms.length > 0 ? (
           <div className={styles.favorites__programs}>
             {favoritePrograms.map((program) => (

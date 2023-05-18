@@ -9,6 +9,7 @@ export default function LunchItem({lunchItem, increase, decrease}){
     const {id, description1, description2,description3, title, gram, kcal, priceTotal, count, price,image} = lunchItem
 
     return(
+
         <div className={styles.product__item}>
             <Image src={`/images/${image}`} width="577" height="288"
                    alt="product" layout={'raw'} className={styles.product__img}/>

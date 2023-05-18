@@ -10,7 +10,7 @@ async function authRequire(req, res) {
             headers: { Authorization: auth_token }
         })).data;
     } catch (error) {
-        if (error.response.status != 401) {
+        if (error.response?.status != 401) {
             console.error(error);
             return undefined;
         }

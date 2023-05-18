@@ -22,10 +22,10 @@ export default function shop() {
               </a>
             </Link>
             <div className={styles.shop__name}>
-              <h2 className={styles.shop__title}>Полезные конфеты</h2>
+              <h2 className={styles.shop__title}>Корисні цукерки</h2>
               <Link href="/candies" legacyBehavior>
                 <a className={styles.shop__more_link}>
-                  <button className={styles.shop__more_btn}>Ассортимент</button>
+                  <button className={styles.shop__more_btn}>Асортимент</button>
                 </a>
               </Link>
             </div>
@@ -45,7 +45,7 @@ export default function shop() {
               <h2 className={styles.shop__title}>Гранола</h2>
               <Link href="/shopItem" legacyBehavior>
                 <a className={styles.shop__more_link_soon}>
-                  <button className={styles.shop__more_btn}>Ассортимент</button>
+                  <button className={styles.shop__more_btn}>Асортимент</button>
                 </a>
               </Link>
             </div>

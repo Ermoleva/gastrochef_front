@@ -11,7 +11,7 @@ export default function AboutMe() {
                 <div className={styles.about__info}>
                     <h2 className={styles.about__info_title}>
                     Вітаю! Мене звати <span>Кобилинський Кирило</span>, і я 
-                    є<span>засновником GastroChef.</span>
+                    є <span>засновником GastroChef.</span>
                     </h2>
                     <p className={styles.about__info_text}>
                     Я Майстер Спорту України з важкої атлетики, а також перебував у
