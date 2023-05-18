@@ -14,7 +14,7 @@ export default function LunchItem({lunchItem, increase, decrease}){
             <Image src={`/images/${image}`} width="577" height="288"
                    alt="product" layout={'raw'} className={styles.product__img}/>
             <div className={styles.product__lunch_wrapp}>
-            <h2 className={styles.product__title}> Бізнес-ланч "{title}"</h2>
+            <h2 className={styles.product__title}> Бізнес-ланч &quot;{title}&quot;</h2>
             <p className={styles.product__lunch_gramm}>
                 {gram} г
             </p>

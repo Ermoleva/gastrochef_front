@@ -12,7 +12,7 @@ export default function ModalNumber({active, setActive}){
 
                 <div className={styles.number__wrapp} onClick={e => e.stopPropagation()}>
                 <div className={styles.number__data}>
-                    <h2 className={styles.number__title}>Ім'я</h2>
+                    <h2 className={styles.number__title}>Ім&apos;я</h2>
                     <input
                         className={styles.number__input}
                         required

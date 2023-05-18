@@ -121,7 +121,7 @@ export default function Lunch(props) {
         <div className={styles.container}>
           <h2 className={styles.product__info_title}>Бизнес-ланчи</h2>
           <p className={styles.product__info_text}>
-          Пропонуємо солодку колекцію корисних цукерок. Створені з любов'ю та
+          Пропонуємо солодку колекцію корисних цукерок. Створені з любов&apos;ю та
             виготовлені з натуральних продуктів без додавання цукру - з
             турботою про вас і ваших близьких!
             <br />
