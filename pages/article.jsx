@@ -12,6 +12,7 @@ import Link from "next/link.js";
 import info1 from "../public/images/article-info.png"
 import info2 from "../public/images/article-info2.png"
 import queries from "../data/queries";
+import ServerImage from "../components/Images/ServerImage";
 
 export default function Article({articles}) {
   const router = useRouter();
@@ -35,20 +36,13 @@ export default function Article({articles}) {
     <section className={styles.article}>
       {console.log(item)}
       <div className={styles.container}>
-        <Image
-          src={mainImage}
-          alt="logo"
-          layout={"raw"}
-          className={styles.article__img}
-        />
+        <ServerImage src={item.image1} type="blog/image"
+            className={styles.article__img} alt="logo"/>
 
         <div className={styles.article__name}>
           <div className={styles.article__title_wrapp}>
             <Link href="/blog" className={styles.article__back}>
-              <Image
-                src={back}
-                alt="logo"
-                layout={"raw"}
+              <Image src={back} alt="logo" layout={"raw"}
                 className={styles.article__back_img}
               />
             </Link>
@@ -82,22 +76,11 @@ export default function Article({articles}) {
           </div>
         </div>
         <p className={styles.article__text}>{item.info1}</p>
-        <Image
-        
-          className={styles.article__info_img}
-          src={`/images/${item.image1}`}
-          alt=""
-          width="1020"
-          height="432"
-        />
+        <ServerImage src={item.image2} type="blog/image"
+            className={styles.article__info_img} alt="logo"/>
         <p className={styles.article__text}>{item.info2}</p>
-        <Image
-          className={styles.article__info_img}
-          src={`/images/${item.image2}`}
-          alt=""
-          width="1020"
-          height="432"
-        />
+        <ServerImage src={item.image3} type="blog/image"
+            className={styles.article__info_img} alt="logo"/>
         <p className={styles.article__text}>{item.info3}</p>
 
         <div className={styles.article__footer}>

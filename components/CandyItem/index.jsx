@@ -1,6 +1,7 @@
 import styles from "../../styles/shopItem.module.scss"
 import Image from "next/image";
 import CountCandy from "./CountCandy";
+import ServerImage from "../Images/ServerImage";
 
 export default function CandyItem({candyItem, increase, decrease}) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -9,9 +10,9 @@ export default function CandyItem({candyItem, increase, decrease}) {
 
     return(
         <div className={styles.product__item}>
-
-            <Image src={`/images/${image}`} width="580" height="280"
-                   alt="candy" className={styles.product__img}/>
+            <ServerImage src={image} type="candies/image"
+                width="580" height="280" alt="candy"
+                className={styles.product__img}/>
             <h2 className={styles.product__title}>{title}</h2>
             <p className={styles.product__item_info}>
                 {description}
