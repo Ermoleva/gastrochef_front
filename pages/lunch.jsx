@@ -157,12 +157,12 @@ export default function Lunch(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await queries.get('/businesslunch');
+export async function getServerSideProps({req,res}) {
+  const bl = await getServerAuthQuery(req, '/businesslunch');
   const photos = await postQuery('/gallery/getall');
   return {
     props: { 
-      businesslunch: res.data,
+      businesslunch: bl.data,
       photos: photos.data
     },
   };

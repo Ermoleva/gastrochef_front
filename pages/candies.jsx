@@ -11,10 +11,11 @@ import CandyItemModal from "../components/Modal/CandyItemModal";
 import Modal from "../components/Modal/ModalCandy";
 import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
-import queries, { postQuery } from "../data/queries";
+import queries, { getServerAuthQuery, postQuery } from "../data/queries";
 
 export default function Candies(props) {
   const initCardData = [...props.candies];
+  console.log('initCardData', initCardData)
   initCardData.forEach(c => {
     c.count = 0;
     c.priceTotal = c.price;
@@ -145,12 +146,12 @@ export default function Candies(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await queries.get('/candies');
+export async function getServerSideProps({req, res}) {
+  const candies = await getServerAuthQuery(req, '/candies');
   const photos = await postQuery('/gallery/getall');
   return {
     props: { 
-      candies: res.data,
+      candies: candies.data,
       photos: photos.data
     },
   };
