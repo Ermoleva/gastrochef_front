@@ -228,7 +228,8 @@ li {
 }
 @media(max-width:1000px){
   .react-tabs__tab-panel.react-tabs__tab-panel--selected{
-    height: 250px !important;
+    height: 350px !important;
+    padding: 20px;
   }
   .react-tabs__tab{
     font-weight: 700 !important;

@@ -14,7 +14,6 @@ const ProgramSlider = ({ programs }) => {
       slidesPerView={1}
       navigation
       loop={true}
-      pagination={{ clickable: true, renderBullet: renderProgramBullet }}
       scrollbar={{ draggable: true }}
       className='program-swiper'
     >

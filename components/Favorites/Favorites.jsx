@@ -24,7 +24,7 @@ const Favorites = () => {
         console.error('Ошибка при загрузке программ:', err);
       })
       getAuthQuery('/businesslunch').then(res => {
-        setCandies(res.data);
+        setLunches(res.data);
       }).catch(err => {
         console.error('Ошибка при загрузке программ:', err);
       })
@@ -48,9 +48,9 @@ const Favorites = () => {
     const favoriteLunches = lunches.filter(p => p.isFavorite);
     
     return (
-      <div className={styles.favorites}>
-        <h2>улюблені товари</h2>
-        {((favoritePrograms.length + favoriteCandies.length + favoriteLunches.length) > 0) ? (
+      <div className={styles.container}>
+        <h2 className={styles.favorites__programs_title}>Улюблені товари</h2>
+        {(favoritePrograms.length + favoriteCandies.length + favoriteLunches.length) > 0 ? (
           <div className={styles.favorites__programs}>
             {favoritePrograms.map((program) => (
               <FavoriteProgram

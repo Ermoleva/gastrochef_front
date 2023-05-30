@@ -45,8 +45,9 @@ export default function CandyItem({candyItem, increase, decrease}) {
             <ServerImage src={image} type="candies/image"
                 width="580" height="280" alt="candy"
                 className={styles.product__img}/>
+                <div className={styles.product__name_wrap}>
             <h2 className={styles.product__title}>{title}</h2>
-            <button onClick={toggleFavorite} className={styles.program__likeButton}>
+            <button onClick={toggleFavorite} className={styles.product__likeButton}>
         <svg width="24" height="24"
           viewBox="0 0 24 24"
           fill={isFavorite ? '#64D370' : 'none'}
@@ -58,6 +59,7 @@ export default function CandyItem({candyItem, increase, decrease}) {
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
         </svg>
       </button>
+      </div>
             <p className={styles.product__item_info}>
                 {description}
             </p>

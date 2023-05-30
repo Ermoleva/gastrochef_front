@@ -24,7 +24,18 @@
         }
 
     }
-
+&__name_wrap{
+    display: flex;
+}
+&__likeButton{
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+}
+&__lunch_likeButton{
+    background-color: transparent;
+    border: none;
+}
     &__lunch_wrapp {
         display: flex;
         justify-content: space-between;

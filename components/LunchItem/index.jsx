@@ -41,7 +41,7 @@ export default function LunchItem({lunchItem, increase, decrease}){
     return(
 
         <div className={styles.product__item}>
-            {console.log(lunchItem.description1)}
+            {console.log(lunchItem)}
             <ServerImage src={image} type="businesslunch/image"
                 width="577" height="288" alt="product"
                 className={styles.product__img}/>
@@ -54,7 +54,7 @@ export default function LunchItem({lunchItem, increase, decrease}){
             <p className={styles.product__lunch_kcal}>
                 {kcal} ккал
             </p>
-            <button onClick={toggleFavorite} className={styles.program__likeButton}>
+            <button onClick={toggleFavorite} className={styles.product__lunch_likeButton}>
         <svg width="24" height="24"
           viewBox="0 0 24 24"
           fill={isFavorite ? '#64D370' : 'none'}

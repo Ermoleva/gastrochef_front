@@ -34,7 +34,6 @@ export default function Article({articles}) {
   
   return (
     <section className={styles.article}>
-      {console.log(item)}
       <div className={styles.container}>
         <ServerImage src={item.image1} type="blog/image"
             className={styles.article__img} alt="logo"/>
@@ -131,11 +130,12 @@ export default function Article({articles}) {
           <div className={styles.article__more_items}>
             {displayedItems.map((i) => (
               <div key={i.id} className={styles.articles__item}>
-                {console.log(i)}
+                
                 <Link
                   href={{ pathname: "/article", query: { article: i.id } }}
                   className={styles.articles__link}
                 >
+                  
                   <Image
                     src={article1}
                     alt="image"

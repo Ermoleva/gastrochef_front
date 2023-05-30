@@ -1,0 +1,36 @@
+.favoriteProgram{
+    &__text{
+        display: flex;
+        align-items: flex-start;
+    }
+    &__likeButton{
+        background-color: transparent;
+        border: none;
+        margin:0 0 -5px 7px;
+        
+        cursor: pointer;
+    }
+}
+.favorites__programs{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    &_title{
+        padding: 40px 0;
+        font-size: 30px;
+    }
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+@media (max-width:850px) {
+    .container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .favorites__programs{
+        width: 100%;
+    }
+}
