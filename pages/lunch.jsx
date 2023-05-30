@@ -9,7 +9,7 @@ import LunchItemModal from "../components/Modal/LunchItemModal";
 import Modal from "../components/Modal/ModalLunch";
 import ModalNumber from "../components/Modal/ModalNumber";
 import ModalOnline from "../components/Modal/ModalOnline";
-import queries, { postQuery } from "../data/queries";
+import queries, { getServerAuthQuery, postQuery } from "../data/queries";
 
 export default function Lunch(props) {
   const initCardData = [...props.businesslunch];

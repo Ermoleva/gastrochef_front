@@ -4,19 +4,19 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { postAuthQuery } from '../../data/queries';
 
-const FavoriteProgram = ({ candy, onUnlike }) => {
-  const { name, calories, description, plans } = candy;
-  const [isFavorite, setIsFavorite] = useState(program.isFavorite || false);
+const FavoriteCandy = ({ candyItem, onUnlikeCandy }) => {
+  const { title, price, description } = candyItem;
+  const [isFavorite, setIsFavorite] = useState(candyItem.isFavorite || false);
   const router = useRouter();
 
   
   const toggleFavorite = async () => {
     const fav = !isFavorite;
     try {
-      if (!fav && onUnlike) onUnlike();
+      if (!fav && onUnlikeCandy) onUnlikeCandy();
       setIsFavorite(fav);
-      await postAuthQuery('/mealplan/favorite', {
-        id: program.id, like: fav
+      await postAuthQuery('/candies/favorite', {
+        id: candyItem.id, like: fav
       });
       console.log("set favorite")
     } catch (error) {
@@ -31,7 +31,7 @@ const FavoriteProgram = ({ candy, onUnlike }) => {
         <h2
           className={styles.favoriteProgram__title}
           onClick={() => router.push('/')}
-        >{name} {calories ? `${calories} ккал` : ''}</h2>
+        >{title} {price}</h2>
         <p className={styles.favoriteProgram__info}>{description}</p>
       </div>
 
@@ -53,4 +53,4 @@ const FavoriteProgram = ({ candy, onUnlike }) => {
   );
 };
 
-export default FavoriteProgram;
+export default FavoriteCandy;
